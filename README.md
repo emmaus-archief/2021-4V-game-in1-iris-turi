@@ -9,17 +9,21 @@ Gemaakt door:
 
 Basis: uitleg, spelen, afgaan en punten
 - [x] maak index.html, style.css en script.js met canvas
-- [ ] teken speler
-- [ ] beweeg speler
-- [ ] ... *(vul zelf aan)*
+- [ ] teken achtergrond
+- [ ] teken speler (geen details, gaat vooral om de grote)
+- [ ] beweeg mollen omhoog, random
+- [ ] bij klikken naar beneden/weg
+- [ ] na x aantal seconde mol weer weg
 - [ ] punten op scherm zetten
 - [ ] punten kunnen scoren
 - [ ] uitlegscherm
+- [ ] game over
 
-Uitbreiding: *bedenk iets, bijvoorbeeld meer tegenstanders*
-- [ ] *later uitwerken*
-- [ ] *later uitwerken*
-- [ ] *later uitwerken*
+
+Uitbreiding: 
+- [ ] veranderen "mollen"/spelers
+- [ ] moeilijkheid veranderen per level
+- [ ] tablad voor level kiezen
 
 Uitbreiding: *bedenk iets, bijvoorbeeld bewegende achtergrond*
 - [ ] *later uitwerken*
