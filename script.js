@@ -57,7 +57,7 @@ var tekenVeld = function () {
  * @param {number} y y-coördinaat
  */
 var tekenMol = function(x, y) {
-    fill(0,250,0)
+    fill(0,30,0)
     ellipse(200,300,200,200)
     
 };
