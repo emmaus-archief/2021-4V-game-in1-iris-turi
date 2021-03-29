@@ -33,6 +33,8 @@ var vijandY = 0;   // y-positie van vijand
 
 var score = 0; // aantal behaalde punten
 
+var width = 22;
+var height = 22;
 
 
 
@@ -46,8 +48,10 @@ var score = 0; // aantal behaalde punten
  * Tekent het speelveld
  */
 var tekenVeld = function () {
-  fill("purple");
+  fill("blue");
   rect(20, 20, width - 2 * 20, height - 2 * 20);
+  fill("forest green");
+   rect();
 };
 
 
