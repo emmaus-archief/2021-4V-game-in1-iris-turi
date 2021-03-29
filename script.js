@@ -33,8 +33,8 @@ var vijandY = 0;   // y-positie van vijand
 
 var score = 0; // aantal behaalde punten
 
-var width = 22;
-var height = 22;
+var width = 20;
+var height = 20;
 
 
 
@@ -49,9 +49,10 @@ var height = 22;
  */
 var tekenVeld = function () {
   fill("blue");
-  rect(20, 20, width - 2 * 20, height - 2 * 20);
-  fill("forest green");
-   rect();
+  rect(20, 20, width * 20, height * 20);
+  fill("green");
+  rect(0, 200, width * 20, height * 5 ); //boveste deel groen
+  rect(0, 300, width * 20, height * 5 ); // onderste deel groen
 };
 
 
@@ -60,10 +61,9 @@ var tekenVeld = function () {
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
-var tekenMol = function(x, y) {
-    fill(0,30,0)
-    ellipse(200,300,200,200)
+var tekenVijand = function(x, y) {
     
+
 };
 
 
@@ -182,7 +182,7 @@ function draw() {
       }
 
       tekenVeld();
-      tekenMol(vijandX, vijandY);
+      tekenVijand(vijandX, vijandY);
       tekenKogel(kogelX, kogelY);
       tekenSpeler(spelerX, spelerY);
 
