@@ -8,6 +8,7 @@
 
    Begin met dit template voor je game opdracht,
    voeg er je eigen code aan toe.
+   bijvoorbeeld dit
  */
 
 
@@ -61,7 +62,9 @@ var tekenVeld = function () {
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
-var tekenVijand = function(x, y) {
+var tekenMol = function(x, y) {
+    fill("#A0522D")
+    ellipse(300,250,130,130)
     
 
 };
@@ -182,7 +185,7 @@ function draw() {
       }
 
       tekenVeld();
-      tekenVijand(vijandX, vijandY);
+      tekenMol(vijandX, vijandY);
       tekenKogel(kogelX, kogelY);
       tekenSpeler(spelerX, spelerY);
 
