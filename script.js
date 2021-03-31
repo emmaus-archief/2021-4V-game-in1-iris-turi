@@ -48,7 +48,7 @@ var height = 20;
  * Tekent het speelveld
  */
 var tekenVeld = function () {
-  fill("blue");
+  fill("deepskyblue");
   rect(20, 20, width * 20, height * 20);
   fill("green");
   rect(0, 200, width * 20, height * 5 ); //boveste deel groen
