@@ -34,10 +34,10 @@ var vijandY = 0;   // y-positie van vijand
 var score = 0; // aantal behaalde punten
 
 var widthBack = 1280;
-var heightBack = 20;
+var heightBack = 540;
 
-
-
+var widthMol = 120
+var heightMol = 120
 
 /* ********************************************* */
 /*      functies die je gebruikt in je game      */
@@ -48,9 +48,9 @@ var heightBack = 20;
  * Tekent het speelveld
  */
 var tekenVeld = function () { 
-  fill("green");
-  rect(0, 200, widthBack, heightBack * 36 ); //boveste deel groen
-  rect(0, 400, widthBack, heightBack * 18 ); // onderste deel groen
+  fill("limeGreen");
+  rect(0, 180, widthBack, heightBack); //boveste deel groen
+  rect(0, 360, widthBack, heightBack * 3/4 ); // onderste deel groen
 };
 
 
@@ -59,8 +59,11 @@ var tekenVeld = function () {
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
-var tekenVijand = function(x, y) {
-    
+var tekenMol = function(x, y) {
+    fill("#A0522D")
+    ellipse(300,250,widthMol,heightMol)
+    fill("blue")
+    ellipse(300,250, widthMol/4, heightMol/4)
 
 };
 
@@ -75,15 +78,13 @@ var tekenKogel = function(x, y) {
 
 };
 
-
 /**
  * Tekent de speler
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
-var tekenSpeler = function(x, y) {
-  fill("white");
-  ellipse(x, y, 50, 50);
+var tekenSpeler = function(x, y) {   
+   
 };
 
 
@@ -162,6 +163,7 @@ function setup() {
  * de code in deze functie wordt meerdere keren per seconde
  * uitgevoerd door de p5 library, nadat de setup functie klaar is
  */
+
 function draw() {
   switch (spelStatus) {
     case SPELEN:
@@ -180,13 +182,15 @@ function draw() {
       }
 
       tekenVeld();
-      tekenVijand(vijandX, vijandY);
+      tekenMol(vijandX, vijandY);
       tekenKogel(kogelX, kogelY);
       tekenSpeler(spelerX, spelerY);
+    
 
       if (checkGameOver()) {
         spelStatus = GAMEOVER;
       }
       break;
   }
-}
+}  
+
