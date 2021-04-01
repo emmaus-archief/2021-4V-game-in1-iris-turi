@@ -37,8 +37,8 @@ var score = 0; // aantal behaalde punten
 var width = 20;
 var height = 20;
 
-
-
+var widthMol = 120
+var heightMol = 120
 
 /* ********************************************* */
 /*      functies die je gebruikt in je game      */
@@ -64,8 +64,9 @@ var tekenVeld = function () {
  */
 var tekenMol = function(x, y) {
     fill("#A0522D")
-    ellipse(300,250,130,130)
-    
+    ellipse(300,250,widthMol,heightMol)
+    fill("blue")
+    ellipse(300,250, widthMol/4, heightMol/4)
 
 };
 
@@ -88,7 +89,7 @@ var tekenKogel = function(x, y) {
  */
 var tekenSpeler = function(x, y) {
   fill("white");
-  ellipse(x, y, 50, 50);
+  ellipse(mouseX, mouseY, 50, 50);
 };
 
 
