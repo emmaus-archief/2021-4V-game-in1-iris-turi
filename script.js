@@ -8,7 +8,6 @@
 
    Begin met dit template voor je game opdracht,
    voeg er je eigen code aan toe.
-   bijvoorbeeld dit
  */
 
 
@@ -34,8 +33,8 @@ var vijandY = 0;   // y-positie van vijand
 
 var score = 0; // aantal behaalde punten
 
-var width = 20;
-var height = 20;
+var widthBack = 1280;
+var heightBack = 20;
 
 
 
@@ -48,12 +47,10 @@ var height = 20;
 /**
  * Tekent het speelveld
  */
-var tekenVeld = function () {
-  fill("deepskyblue");
-  rect(20, 20, width * 20, height * 20);
+var tekenVeld = function () { 
   fill("green");
-  rect(0, 200, width * 20, height * 5 ); //boveste deel groen
-  rect(0, 300, width * 20, height * 5 ); // onderste deel groen
+  rect(0, 200, widthBack, heightBack * 36 ); //boveste deel groen
+  rect(0, 400, widthBack, heightBack * 18 ); // onderste deel groen
 };
 
 
@@ -62,9 +59,7 @@ var tekenVeld = function () {
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
-var tekenMol = function(x, y) {
-    fill("#A0522D")
-    ellipse(300,250,130,130)
+var tekenVijand = function(x, y) {
     
 
 };
@@ -158,7 +153,7 @@ function setup() {
   createCanvas(1280, 720);
 
   // Kleur de achtergrond blauw, zodat je het kunt zien
-  background('blue');
+  background('deepskyblue');
 }
 
 
@@ -185,7 +180,7 @@ function draw() {
       }
 
       tekenVeld();
-      tekenMol(vijandX, vijandY);
+      tekenVijand(vijandX, vijandY);
       tekenKogel(kogelX, kogelY);
       tekenSpeler(spelerX, spelerY);
 
