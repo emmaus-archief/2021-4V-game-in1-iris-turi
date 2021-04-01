@@ -8,7 +8,6 @@
 
    Begin met dit template voor je game opdracht,
    voeg er je eigen code aan toe.
-   bijvoorbeeld dit
  */
 
 
@@ -34,8 +33,8 @@ var vijandY = 0;   // y-positie van vijand
 
 var score = 0; // aantal behaalde punten
 
-var width = 20;
-var height = 20;
+var widthBack = 1280;
+var heightBack = 540;
 
 var widthMol = 120
 var heightMol = 120
@@ -48,12 +47,10 @@ var heightMol = 120
 /**
  * Tekent het speelveld
  */
-var tekenVeld = function () {
-  fill("deepskyblue");
-  rect(20, 20, width * 20, height * 20);
-  fill("green");
-  rect(0, 200, width * 20, height * 5 ); //boveste deel groen
-  rect(0, 300, width * 20, height * 5 ); // onderste deel groen
+var tekenVeld = function () { 
+  fill("limeGreen");
+  rect(0, 180, widthBack, heightBack); //boveste deel groen
+  rect(0, 360, widthBack, heightBack * 3/4 ); // onderste deel groen
 };
 
 
@@ -84,15 +81,13 @@ var tekenKogel = function(x, y) {
 
 };
 
-
 /**
  * Tekent de speler
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
-var tekenSpeler = function(x, y) {
-  fill("white");
-  ellipse(mouseX, mouseY, 50, 50);
+var tekenSpeler = function(x, y) {   
+   
 };
 
 
@@ -162,7 +157,7 @@ function setup() {
   createCanvas(1280, 720);
 
   // Kleur de achtergrond blauw, zodat je het kunt zien
-  background('blue');
+  background('deepskyblue');
 }
 
 
@@ -171,6 +166,7 @@ function setup() {
  * de code in deze functie wordt meerdere keren per seconde
  * uitgevoerd door de p5 library, nadat de setup functie klaar is
  */
+
 function draw() {
   switch (spelStatus) {
     case SPELEN:
@@ -192,10 +188,12 @@ function draw() {
       tekenMol(vijandX, vijandY);
       tekenKogel(kogelX, kogelY);
       tekenSpeler(spelerX, spelerY);
+    
 
       if (checkGameOver()) {
         spelStatus = GAMEOVER;
       }
       break;
   }
-}
+}  
+
