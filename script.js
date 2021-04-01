@@ -64,9 +64,12 @@ var tekenVeld = function () {
  */
 var tekenMol = function(x, y) {
     fill("#A0522D")
-    ellipse(300,250,widthMol,heightMol)
-    fill("blue")
-    ellipse(300,250, widthMol/4, heightMol/4)
+    ellipse(300,250,widthMol,heightMol) //hoofdmol
+    fill("#241600") 
+    ellipse(300,250, widthMol/5, heightMol/5) //neusmol
+    line(290,280,310,280)
+    arc(280,280,150,150,50,45)
+    //arc(150, 250, 150, 150, 1, 180)
 
 };
 
