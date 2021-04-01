@@ -9,7 +9,7 @@ Gemaakt door:
 
 Basis: uitleg, spelen, afgaan en punten
 - [x] maak index.html, style.css en script.js met canvas
-- [ ] teken achtergrond
+- [x] teken achtergrond
 - [ ] teken mol (geen details, gaat vooral om de grote)
 - [ ] beweeg mol omhoog
 - [ ] bij klikken naar beneden/weg
@@ -32,7 +32,7 @@ Uitbreiding:
 - [ ] tablad voor level kiezen
 
 Uitbreiding: *bedenk iets, bijvoorbeeld bewegende achtergrond*
-- [ ] *later uitwerken*
+- [ ] achtergrond mooier maken
 - [ ] *later uitwerken*
 - [ ] *later uitwerken*
 
