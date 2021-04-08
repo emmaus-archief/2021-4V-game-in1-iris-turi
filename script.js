@@ -40,8 +40,8 @@ var yBack = 270;
 var widthMol = 120
 var heightMol = 120
 
-var plaatsMolX = 300
-var plaatsMolY = 250
+var plaatsMolX = 100
+var plaatsMolY = 370
 /* ********************************************* */
 /*      functies die je gebruikt in je game      */
 /* ********************************************* */
@@ -119,6 +119,9 @@ var beweegKogel = function() {
  * Updatet globale variabele spelerX en spelerY
  */
 var beweegMol = function() {
+    if (){
+        plaatsMolY - 3;
+    }
 
 };
 
