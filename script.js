@@ -64,8 +64,11 @@ var tekenMol = function(x, y) {
     ellipse(300,250,widthMol,heightMol) //hoofdmol
     fill("#241600") 
     ellipse(300,250, widthMol/5, heightMol/5) //neusmol
-    line(290,280,310,280)
-    arc(280,280,150,150,50,45)
+    fill("black")
+    ellipse(320,230, widthMol/6, heightMol/6) //rechteroog 
+    ellipse(280,230, widthMol/6, heightMol/6) //linkeroog 
+    //line(290,280,310,280)
+    //arc(280,280,150,150,50,45)
     //arc(150, 250, 150, 150, 1, 180)
 
 };
