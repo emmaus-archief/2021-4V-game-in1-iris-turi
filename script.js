@@ -50,9 +50,13 @@ var plaatsMolY = 250
 /**
  * Tekent het speelveld
  */
-var tekenVeld = function () { 
+var tekenVeld1 = function () { 
   fill("limeGreen");
   rect(0, yBack, widthBack, heightBack); //boveste deel groen
+};
+
+var tekenVeld2 = function () { 
+  fill("limeGreen");
   rect(0, yBack * 2 - 55, widthBack, heightBack * 3/4 ); // onderste deel groen
 };
 
@@ -64,12 +68,24 @@ var tekenVeld = function () {
  */
 var tekenMol = function(x, y) {
     fill("#A0522D")
+<<<<<<< HEAD
     ellipse(plaatsMolX, plaatsMolY,widthMol,heightMol) //hoofd mol
     fill("#241600") 
     ellipse(plaatsMolX, plaatsMolY, widthMol/5, heightMol/5) //neus mol
     fill("black")
     ellipse(plaatsMolX +20 ,plaatsMolY - 20, widthMol/6, heightMol/6) //rechter oog 
     ellipse(plaatsMolX -20,plaatsMolY -20, widthMol/6, heightMol/6) //linker oog 
+=======
+    ellipse(300,250,widthMol,heightMol) //hoofdmol
+    fill("#241600") 
+    ellipse(300,250, widthMol/5, heightMol/5) //neusmol
+    fill("black")
+    ellipse(320,230, widthMol/6, heightMol/6) //rechteroog 
+    ellipse(280,230, widthMol/6, heightMol/6) //linkeroog 
+    //line(290,280,310,280)
+    //arc(280,280,150,150,50,45)
+    //arc(150, 250, 150, 150, 1, 180)
+>>>>>>> be060a0c2486c9012c455677172b7c63671a7def
 
 };
 
@@ -187,8 +203,9 @@ function draw() {
         // eventueel: nieuwe speler maken
       }
 
-      tekenVeld();
+    
       tekenMol(vijandX, vijandY);
+      tekenVeld();
       tekenKogel(kogelX, kogelY);
       tekenSpeler(spelerX, spelerY);
     
