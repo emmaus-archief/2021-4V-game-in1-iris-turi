@@ -40,6 +40,8 @@ var yBack = 270;
 var widthMol = 120
 var heightMol = 120
 
+var plaatsMolX = 300
+var plaatsMolY = 250
 /* ********************************************* */
 /*      functies die je gebruikt in je game      */
 /* ********************************************* */
@@ -62,15 +64,12 @@ var tekenVeld = function () {
  */
 var tekenMol = function(x, y) {
     fill("#A0522D")
-    ellipse(300,250,widthMol,heightMol) //hoofd mol
+    ellipse(plaatsMolX, plaatsMolY,widthMol,heightMol) //hoofd mol
     fill("#241600") 
-    ellipse(300,250, widthMol/5, heightMol/5) //neus mol
+    ellipse(plaatsMolX, plaatsMolY, widthMol/5, heightMol/5) //neus mol
     fill("black")
-    ellipse(320,230, widthMol/6, heightMol/6) //rechter oog 
-    ellipse(280,230, widthMol/6, heightMol/6) //linker oog 
-    //line(290,280,310,280)
-    //arc(280,280,150,150,50,45)
-    //arc(150, 250, 150, 150, 1, 180)
+    ellipse(plaatsMolX +20 ,plaatsMolY - 20, widthMol/6, heightMol/6) //rechter oog 
+    ellipse(plaatsMolX -20,plaatsMolY -20, widthMol/6, heightMol/6) //linker oog 
 
 };
 
