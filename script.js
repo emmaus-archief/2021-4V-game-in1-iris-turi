@@ -57,7 +57,7 @@ var tekenVeld1 = function () {
 
 var tekenVeld2 = function () { 
   fill("limeGreen");
-  rect(0, yBack * 2 - 55, widthBack, heightBack * 3/4 ); // onderste deel groen
+  rect(0, yBack * 2 - 55, widthBack, heightBack * 3/4 ); //onderste deel groen
 };
 
 
