@@ -63,16 +63,20 @@ var tekenVeld = function () {
 var tekenMol = function(x, y) {
     fill("#A0522D")
 <<<<<<< HEAD
+<<<<<<< HEAD
     ellipse(300,250,widthMol,heightMol)
     fill("blue")
     ellipse(300,250, widthMol/4, heightMol/4)
 =======
     ellipse(300,250,widthMol,heightMol) //hoofdmol
+=======
+    ellipse(300,250,widthMol,heightMol) //hoofd mol
+>>>>>>> 410ac26df02fca08a7215d40e095baef8b5d24a0
     fill("#241600") 
-    ellipse(300,250, widthMol/5, heightMol/5) //neusmol
+    ellipse(300,250, widthMol/5, heightMol/5) //neus mol
     fill("black")
-    ellipse(320,230, widthMol/6, heightMol/6) //rechteroog 
-    ellipse(280,230, widthMol/6, heightMol/6) //linkeroog 
+    ellipse(320,230, widthMol/6, heightMol/6) //rechter oog 
+    ellipse(280,230, widthMol/6, heightMol/6) //linker oog 
     //line(290,280,310,280)
     //arc(280,280,150,150,50,45)
     //arc(150, 250, 150, 150, 1, 180)
