@@ -34,7 +34,8 @@ var vijandY = 0;   // y-positie van vijand
 var score = 0; // aantal behaalde punten
 
 var widthBack = 1280;
-var heightBack = 540;
+var heightBack = 450;
+var yBack = 270;
 
 var widthMol = 120
 var heightMol = 120
@@ -49,8 +50,8 @@ var heightMol = 120
  */
 var tekenVeld = function () { 
   fill("limeGreen");
-  rect(0, 180, widthBack, heightBack); //boveste deel groen
-  rect(0, 360, widthBack, heightBack * 3/4 ); // onderste deel groen
+  rect(0, yBack, widthBack, heightBack); //boveste deel groen
+  rect(0, yBack * 2 - 55, widthBack, heightBack * 3/4 ); // onderste deel groen
 };
 
 
@@ -61,12 +62,9 @@ var tekenVeld = function () {
  */
 var tekenMol = function(x, y) {
     fill("#A0522D")
-    ellipse(300,250,widthMol,heightMol) //hoofdmol
-    fill("#241600") 
-    ellipse(300,250, widthMol/5, heightMol/5) //neusmol
-    line(290,280,310,280)
-    arc(280,280,150,150,50,45)
-    //arc(150, 250, 150, 150, 1, 180)
+    ellipse(300,250,widthMol,heightMol)
+    fill("blue")
+    ellipse(300,250, widthMol/4, heightMol/4)
 
 };
 
@@ -111,8 +109,8 @@ var beweegKogel = function() {
  * Kijkt wat de toetsen/muis etc zijn.
  * Updatet globale variabele spelerX en spelerY
  */
-var beweegSpeler = function() {
-
+var beweegMol = function() {
+    
 };
 
 
@@ -172,7 +170,7 @@ function draw() {
     case SPELEN:
       beweegVijand();
       beweegKogel();
-      beweegSpeler();
+      beweegMol();
       
       if (checkVijandGeraakt()) {
         // punten erbij
