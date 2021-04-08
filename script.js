@@ -106,6 +106,7 @@ var tekenKogel = function(x, y) {
  * @param {number} y y-coördinaat
  */
 var tekenSpeler = function(x, y) {   
+    
    
 };
 
@@ -205,7 +206,8 @@ function draw() {
 
     
       tekenMol(vijandX, vijandY);
-      tekenVeld();
+      tekenVeld1();
+      tekenVeld2();
       tekenKogel(kogelX, kogelY);
       tekenSpeler(spelerX, spelerY);
     
