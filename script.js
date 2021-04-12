@@ -50,6 +50,10 @@ var plaatsMolY = 299
 /**
  * Tekent het speelveld
  */
+var tekenAchtergrond = function() {
+    fill('deepskyblue');
+    rect (0,0, 1280, 720);
+}
 var tekenVeld1 = function () { 
   fill("limeGreen");
   rect(0, yBack, widthBack, heightBack); //boveste deel groen
@@ -116,11 +120,11 @@ var beweegKogel = function() {
 
 /**
  * Kijkt wat de toetsen/muis etc zijn.
- * Updatet globale variabele spelerX en spelerY
+ * Updatet globale variabele plaatsMolY
  */
 var beweegMol = function() {
     if (plaatsMolY < 300 && plaatsMolY > 250 ){
-        plaatsMolY - 3;
+        plaatsMolY= plaatsMolY - 1;
     }
 
 };
@@ -194,8 +198,8 @@ function draw() {
         // eventueel: nieuwe speler maken
       }
 
-    
-      tekenMol(vijandX, vijandY);
+      tekenAchtergrond ();
+      tekenMol(plaatsMolX, plaatsMolY);
       tekenVeld1();
       tekenVeld2();
       tekenKogel(kogelX, kogelY);
