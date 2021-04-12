@@ -70,7 +70,7 @@ var tekenMol = function(x, y) {
     fill("#A0522D")
     ellipse(plaatsMolX, plaatsMolY,widthMol,heightMol) //hoofd mol
     fill("#241600") 
-    ellipse(plaatsMolX, plaatsMolY, widthMol/5, heightMol/5) //neus mol
+    ellipse(plaatsMolX, plaatsMolY, widthMol/5, heightMol/5) //Neus mol
     fill("black")
     ellipse(plaatsMolX +20 ,plaatsMolY - 20, widthMol/6, heightMol/6) //rechter oog 
     ellipse(plaatsMolX -20,plaatsMolY -20, widthMol/6, heightMol/6) //linker oog 
