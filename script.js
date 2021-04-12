@@ -119,7 +119,7 @@ var beweegKogel = function() {
  * Updatet globale variabele spelerX en spelerY
  */
 var beweegMol = function() {
-    if (){
+    if (plaatsMolY < 370 && plaatsMolY > 350 ){
         plaatsMolY - 3;
     }
 
