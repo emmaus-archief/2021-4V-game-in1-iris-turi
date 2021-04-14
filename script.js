@@ -119,7 +119,7 @@ var beweegKogel = function() {
  * Updatet globale variabele spelerX en spelerY
  */
 var beweegMol = function() {
-    if (plaatsMolY < 370 && plaatsMolY > 350 ){
+    if (plaatsMolY < 170 && plaatsMolY > 150 ){
         plaatsMolY - 3;
     }
 
@@ -160,7 +160,7 @@ var checkGameOver = function() {
 /**
  * setup
  * de code in deze functie wordt één keer uitgevoerd door
- * de p5 library, zodra het spel geladen is in de browser
+ * de p5 library, zodra het spel geladen is in de browser.
  */
 function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
