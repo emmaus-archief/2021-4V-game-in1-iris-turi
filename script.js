@@ -40,8 +40,8 @@ var yBack = 270;
 var widthMol = 120
 var heightMol = 120
 
-var plaatsMolX = 100
-var plaatsMolY = 370
+var plaatsMolX = 200
+var plaatsMolY = 299
 /* ********************************************* */
 /*      functies die je gebruikt in je game      */
 /* ********************************************* */
@@ -50,6 +50,10 @@ var plaatsMolY = 370
 /**
  * Tekent het speelveld
  */
+var tekenAchtergrond = function() {
+    fill('deepskyblue');
+    rect (0,0, 1280, 720);
+}
 var tekenVeld1 = function () { 
   fill("limeGreen");
   rect(0, yBack, widthBack, heightBack); //boveste deel groen
@@ -62,7 +66,7 @@ var tekenVeld2 = function () {
 
 
 /**
- * Tekent de vijand
+ * Tekent de mol
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
@@ -79,12 +83,14 @@ var tekenMol = function(x, y) {
 
 
 /**
- * Tekent de kogel of de bal
+ * Tekent de tijd
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
-var tekenKogel = function(x, y) {
-
+var tekenTijd = function(x, y) {
+    fill(0, 13, 255);
+    textSize(100);
+    text("!", 200, 100, 100, 100);
 
 };
 
@@ -116,11 +122,11 @@ var beweegKogel = function() {
 
 /**
  * Kijkt wat de toetsen/muis etc zijn.
- * Updatet globale variabele spelerX en spelerY
+ * Updatet globale variabele plaatsMolY
  */
 var beweegMol = function() {
-    if (plaatsMolY < 170 && plaatsMolY > 150 ){
-        plaatsMolY - 3;
+    if (plaatsMolY < 300 && plaatsMolY > 250 ){
+        plaatsMolY= plaatsMolY - 1;
     }
 
 };
@@ -194,11 +200,11 @@ function draw() {
         // eventueel: nieuwe speler maken
       }
 
-    
-      tekenMol(vijandX, vijandY);
+      tekenAchtergrond ();
+      tekenMol(plaatsMolX, plaatsMolY);
       tekenVeld1();
       tekenVeld2();
-      tekenKogel(kogelX, kogelY);
+      tekenTijd(kogelX, kogelY);
       tekenSpeler(spelerX, spelerY);
     
 
