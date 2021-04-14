@@ -11,7 +11,7 @@ Basis: uitleg, spelen, afgaan en punten
 - [x] maak index.html, style.css en script.js met canvas
 - [x] teken achtergrond
 - [x] teken mol (geen details, gaat vooral om de grote)
-- [ ] beweeg mol omhoog
+- [x] beweeg mol omhoog
 - [ ] bij klikken naar beneden/weg
 - [ ] na x aantal seconde mol weer weg en terug
 - [ ] punten op scherm zetten

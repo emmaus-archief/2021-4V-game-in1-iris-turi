@@ -42,6 +42,7 @@ var heightMol = 120
 
 var plaatsMolX = 200
 var plaatsMolY = 299
+
 /* ********************************************* */
 /*      functies die je gebruikt in je game      */
 /* ********************************************* */
@@ -123,12 +124,16 @@ var beweegKogel = function() {
  * Updatet globale variabele plaatsMolY
  */
 var beweegMol = function() {
+    //beweging omhoog
     if (plaatsMolY < 300 && plaatsMolY > 250 ){
         plaatsMolY= plaatsMolY - 1;
     }
 
+    if (mouseClicked && mouseX > plaatsMolX - 60 && mouseX < plaatsMolX + 60 && mouseY > plaatsMolY - 60 && mouseY < plaatsMolY + 60  ){
+        plaatsMolY = 315
+        
+    }
 };
-
 
 /**
  * Zoekt uit of de vijand is geraakt
