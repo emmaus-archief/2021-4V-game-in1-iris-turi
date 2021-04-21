@@ -43,6 +43,8 @@ var heightMol = 120
 var plaatsMolX = 200
 var plaatsMolY = 299
 
+var tijdTotZichtbaar = random(0,5)
+
 /* ********************************************* */
 /*      functies die je gebruikt in je game      */
 /* ********************************************* */
@@ -124,18 +126,25 @@ var beweegKogel = function() {
  * Updatet globale variabele plaatsMolY
  */
 var beweegMol = function() {
+    // random omhoog
+    if (plaatsMolX = 299){
+    tijdTotZichtbaar = tijdTotZichtbaar - 1;
+    }
     //beweging omhoog
-    if (plaatsMolY < 300 && plaatsMolY > 250 ){
+    if ( tijdTotZichtbaar == 0
+        plaatsMolY < 300 &&
+        plaatsMolY > 250) {
         plaatsMolY= plaatsMolY - 1;
     }
-    
+
+    // beweeg omlaag
     if (mouseIsPressed && 
         mouseX > plaatsMolX - 60 && 
         mouseX < plaatsMolX + 60 && 
         mouseY > plaatsMolY - 60 && 
         mouseY < plaatsMolY + 60  ){
         plaatsMolY = 299;
-        plaatsMolX = random(100,1000);
+        plaatsMolX = random(100,1180);
         
         
     }
