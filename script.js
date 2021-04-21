@@ -95,6 +95,11 @@ var tekenTijd = function(x, y) {
 
 };
 
+var tekenPunten = function(x, y) {
+    
+};
+
+
 /**
  * Tekent de speler
  * @param {number} x x-coördinaat
@@ -211,6 +216,7 @@ function draw() {
       tekenVeld2();
       tekenTijd(kogelX, kogelY);
       tekenSpeler(spelerX, spelerY);
+      tekenPunten()
     
 
       if (checkGameOver()) {
