@@ -135,11 +135,18 @@ var beweegMol = function() {
     if (plaatsMolY < 300 && plaatsMolY > 250 ){
         plaatsMolY= plaatsMolY - 1;
     }
-    /*
-    if (mouseClicked && mouseX > plaatsMolX - 60 && mouseX < plaatsMolX + 60 && mouseY > plaatsMolY - 60 && mouseY < plaatsMolY + 60  ){
-        plaatsMolY = 315
+    
+    if (mouseIsPressed && 
+        mouseX > plaatsMolX - 60 && 
+        mouseX < plaatsMolX + 60 && 
+        mouseY > plaatsMolY - 60 && 
+        mouseY < plaatsMolY + 60  ){
+        plaatsMolY = 299;
+        plaatsMolX = random(100,1000);
         
-    }*/
+        
+    }
+    
 };
 
 /**
