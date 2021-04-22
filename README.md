@@ -12,7 +12,7 @@ Basis: uitleg, spelen, afgaan en punten
 - [x] teken achtergrond
 - [x] teken mol (geen details, gaat vooral om de grote)
 - [x] beweeg mol omhoog
-- [ ] bij klikken naar beneden/weg
+- [x] bij klikken naar beneden/weg
 - [ ] na x aantal seconde mol weer weg en terug
 - [ ] punten op scherm zetten
 - [ ] punten kunnen scoren
