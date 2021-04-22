@@ -89,10 +89,9 @@ var tekenMol = function(x, y) {
  * @param {number} y y-coördinaat
  */
 var tekenTijd = function(x, y) {
-    fill(0, 13, 255);
-    textSize(100);
-    text("!", 200, 100, 100, 100);
-
+   fill(0, 13, 255);
+   textSize(100);
+   text("!", 200, 100, 100, 100);
 };
 
 var tekenPunten = function(x, y) {
