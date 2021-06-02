@@ -41,7 +41,7 @@ var widthMol = 120;
 var heightMol = 120;
 
 var plaatsMolX = 200;
-var plaatsMolY = 299;
+var plaatsMolY = 330;
 
 var tijdTotZichtbaar ;
 
@@ -132,8 +132,8 @@ var beweegMol = function() {
 
     //beweging omhoog
     if (tijdTotZichtbaar <= 0 &&
-        plaatsMolY <= 299 && plaatsMolY > 250 ) {
-      plaatsMolY = plaatsMolY - 1;
+        plaatsMolY <= 330 && plaatsMolY > 250 ) {
+      plaatsMolY = plaatsMolY - 3;
     }
 
     // beweeg omlaag
@@ -143,7 +143,7 @@ var beweegMol = function() {
         mouseY > plaatsMolY - 60 && 
         mouseY < plaatsMolY + 60 &&
         tijdTotZichtbaar <= 0){
-      plaatsMolY = 299;
+      plaatsMolY = 330;
       plaatsMolX = random(100, 1180);
       resetTijdTotZichtbaar();
     }
