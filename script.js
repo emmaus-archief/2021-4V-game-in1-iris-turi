@@ -130,9 +130,9 @@ var beweegMol = function() {
     if (plaatsMolY === 299){
     tijdTotZichtbaar = tijdTotZichtbaar - 1;
     }
-    
+
     //beweging omhoog
-    if ( tijdTotZichtbaar === 0 &&
+    if ( tijdTotZichtbaar <= 0 &&
         plaatsMolY < 298 &&
         plaatsMolY > 250 ) {
         plaatsMolY= plaatsMolY - 1;
@@ -143,9 +143,11 @@ var beweegMol = function() {
         mouseX > plaatsMolX - 60 && 
         mouseX < plaatsMolX + 60 && 
         mouseY > plaatsMolY - 60 && 
-        mouseY < plaatsMolY + 60  ){
+        mouseY < plaatsMolY + 60 &&
+        tijdTotZichtbaar <= 0  ){
         plaatsMolY = 299;
         plaatsMolX = random(100,1180);
+        tijdTotZichtbaar = random(0,750);
         
         
     }
@@ -192,7 +194,7 @@ function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
   createCanvas(1280, 720);
 
-  tijdTotZichtbaar = random(0,5);
+  tijdTotZichtbaar = random(0,750);
   // Kleur de achtergrond blauw, zodat je het kunt zien
   background('deepskyblue');
 }
