@@ -127,6 +127,7 @@ var beweegKogel = function() {
  */
 var beweegMol = function() {
     // random omhoog
+<<<<<<< HEAD
     if (plaatsMolY === 299){
     tijdTotZichtbaar = tijdTotZichtbaar - 1;
     }
@@ -136,6 +137,15 @@ var beweegMol = function() {
         plaatsMolY < 298 &&
         plaatsMolY > 250 ) {
         plaatsMolY= plaatsMolY - 1;
+=======
+    tijdTotZichtbaar = tijdTotZichtbaar - 1;  // ergens anders neerzetten
+    console.log(tijdTotZichtbaar);
+
+    //beweging omhoog
+    if (tijdTotZichtbaar <= 0 &&
+        plaatsMolY <= 299 && plaatsMolY > 250 ) {
+      plaatsMolY = plaatsMolY - 1;
+>>>>>>> 49185ee3712116671d6fd5985609704d97babc5d
     }
 
     // beweeg omlaag
@@ -144,12 +154,19 @@ var beweegMol = function() {
         mouseX < plaatsMolX + 60 && 
         mouseY > plaatsMolY - 60 && 
         mouseY < plaatsMolY + 60 &&
+<<<<<<< HEAD
         tijdTotZichtbaar <= 0  ){
         plaatsMolY = 299;
         plaatsMolX = random(100,1180);
         tijdTotZichtbaar = random(0,750);
         
         
+=======
+        tijdTotZichtbaar <= 0){
+      plaatsMolY = 299;
+      plaatsMolX = random(100, 1180);
+      resetTijdTotZichtbaar();
+>>>>>>> 49185ee3712116671d6fd5985609704d97babc5d
     }
     
 };
@@ -158,7 +175,7 @@ var beweegMol = function() {
  * Zoekt uit of de vijand is geraakt
  * @returns {boolean} true als vijand is geraakt
  */
-var checkVijandGeraakt = function() {
+  var checkVijandGeraakt = function() {
 
   return false;
 };
@@ -184,6 +201,14 @@ var checkGameOver = function() {
   return false;
 };
 
+/**
+ * Stelt de tijdTotZichtbaar-teller in op
+ * een random getal
+ */
+var resetTijdTotZichtbaar = function() {
+  tijdTotZichtbaar = random(0, 250);
+}
+
 
 /**
  * setup
@@ -194,7 +219,11 @@ function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
   createCanvas(1280, 720);
 
+<<<<<<< HEAD
   tijdTotZichtbaar = random(0,750);
+=======
+  resetTijdTotZichtbaar();
+>>>>>>> 49185ee3712116671d6fd5985609704d97babc5d
   // Kleur de achtergrond blauw, zodat je het kunt zien
   background('deepskyblue');
 }
