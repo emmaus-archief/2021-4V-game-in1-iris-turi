@@ -131,9 +131,9 @@ var beweegMol = function() {
     tijdTotZichtbaar = tijdTotZichtbaar - 1;
     }
     //beweging omhoog
-    if ( tijdTotZichtbaar == 0
+    if ( tijdTotZichtbaar == 0 &&
         plaatsMolY < 300 &&
-        plaatsMolY > 250) {
+        plaatsMolY > 250 ) {
         plaatsMolY= plaatsMolY - 1;
     }
 
@@ -205,7 +205,6 @@ function setup() {
 function draw() {
   switch (spelStatus) {
     case SPELEN:
-      beweegVijand();
       beweegKogel();
       beweegMol();
       
