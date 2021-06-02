@@ -127,15 +127,13 @@ var beweegKogel = function() {
  */
 var beweegMol = function() {
     // random omhoog
-    if (plaatsMolY === 299){
-    tijdTotZichtbaar = tijdTotZichtbaar - 1;
-    }
-    
+    tijdTotZichtbaar = tijdTotZichtbaar - 1;  // ergens anders neerzetten
+    console.log(tijdTotZichtbaar);
+
     //beweging omhoog
-    if ( tijdTotZichtbaar === 0 &&
-        plaatsMolY < 298 &&
-        plaatsMolY > 250 ) {
-        plaatsMolY= plaatsMolY - 1;
+    if (tijdTotZichtbaar <= 0 &&
+        plaatsMolY <= 299 && plaatsMolY > 250 ) {
+      plaatsMolY = plaatsMolY - 1;
     }
 
     // beweeg omlaag
@@ -143,11 +141,11 @@ var beweegMol = function() {
         mouseX > plaatsMolX - 60 && 
         mouseX < plaatsMolX + 60 && 
         mouseY > plaatsMolY - 60 && 
-        mouseY < plaatsMolY + 60  ){
-        plaatsMolY = 299;
-        plaatsMolX = random(100,1180);
-        
-        
+        mouseY < plaatsMolY + 60 &&
+        tijdTotZichtbaar <= 0){
+      plaatsMolY = 299;
+      plaatsMolX = random(100, 1180);
+      resetTijdTotZichtbaar();
     }
     
 };
@@ -156,7 +154,7 @@ var beweegMol = function() {
  * Zoekt uit of de vijand is geraakt
  * @returns {boolean} true als vijand is geraakt
  */
-var checkVijandGeraakt = function() {
+  var checkVijandGeraakt = function() {
 
   return false;
 };
@@ -182,6 +180,14 @@ var checkGameOver = function() {
   return false;
 };
 
+/**
+ * Stelt de tijdTotZichtbaar-teller in op
+ * een random getal
+ */
+var resetTijdTotZichtbaar = function() {
+  tijdTotZichtbaar = random(0, 250);
+}
+
 
 /**
  * setup
@@ -192,7 +198,7 @@ function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
   createCanvas(1280, 720);
 
-  tijdTotZichtbaar = random(0,5);
+  resetTijdTotZichtbaar();
   // Kleur de achtergrond blauw, zodat je het kunt zien
   background('deepskyblue');
 }
