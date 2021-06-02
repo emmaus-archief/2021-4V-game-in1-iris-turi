@@ -127,16 +127,12 @@ var beweegKogel = function() {
  */
 var beweegMol = function() {
     // random omhoog
-    if (plaatsMolY = 299){
+    if (plaatsMolY === 299){
     tijdTotZichtbaar = tijdTotZichtbaar - 1;
     console.log (tijdTotZichtbaar);
     }
     //beweging omhoog
-<<<<<<< HEAD
-    if ( tijdTotZichtbaar == 0 &&
-=======
     if ( tijdTotZichtbaar === 0 &&
->>>>>>> fedcbd7ebb86e46a82ee2a000889ba57836ddab3
         plaatsMolY < 300 &&
         plaatsMolY > 250 ) {
         plaatsMolY= plaatsMolY - 1;
@@ -149,7 +145,7 @@ var beweegMol = function() {
         mouseY > plaatsMolY - 60 && 
         mouseY < plaatsMolY + 60  ){
         plaatsMolY = 299;
-        plaatsMolX = random(100,1180);
+         plaatsMolX = random (100,1180);
         
         
     }
