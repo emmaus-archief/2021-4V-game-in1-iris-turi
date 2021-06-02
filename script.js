@@ -37,13 +37,13 @@ var widthBack = 1280;
 var heightBack = 450;
 var yBack = 270;
 
-var widthMol = 120
-var heightMol = 120
+var widthMol = 120;
+var heightMol = 120;
 
-var plaatsMolX = 200
-var plaatsMolY = 299
+var plaatsMolX = 200;
+var plaatsMolY = 299;
 
-var tijdTotZichtbaar = random(0,5)
+var tijdTotZichtbaar ;
 
 /* ********************************************* */
 /*      functies die je gebruikt in je game      */
@@ -129,11 +129,11 @@ var beweegMol = function() {
     // random omhoog
     if (plaatsMolY === 299){
     tijdTotZichtbaar = tijdTotZichtbaar - 1;
-    console.log (tijdTotZichtbaar);
     }
+    
     //beweging omhoog
     if ( tijdTotZichtbaar === 0 &&
-        plaatsMolY < 300 &&
+        plaatsMolY < 298 &&
         plaatsMolY > 250 ) {
         plaatsMolY= plaatsMolY - 1;
     }
@@ -145,7 +145,7 @@ var beweegMol = function() {
         mouseY > plaatsMolY - 60 && 
         mouseY < plaatsMolY + 60  ){
         plaatsMolY = 299;
-         plaatsMolX = random (100,1180);
+        plaatsMolX = random(100,1180);
         
         
     }
@@ -192,6 +192,7 @@ function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
   createCanvas(1280, 720);
 
+  tijdTotZichtbaar = random(0,5);
   // Kleur de achtergrond blauw, zodat je het kunt zien
   background('deepskyblue');
 }
