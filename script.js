@@ -37,13 +37,13 @@ var widthBack = 1280;
 var heightBack = 450;
 var yBack = 270;
 
-var widthMol = 120
-var heightMol = 120
+var widthMol = 120;
+var heightMol = 120;
 
-var plaatsMolX = 200
-var plaatsMolY = 299
+var plaatsMolX = 200;
+var plaatsMolY = 330;
 
-var tijdTotZichtbaar = random(0,5)
+var tijdTotZichtbaar ;
 
 /* ********************************************* */
 /*      functies die je gebruikt in je game      */
@@ -90,11 +90,11 @@ var tekenMol = function(x, y) {
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
-var tekenTijd = function(x, y) {
-   fill(0, 13, 255);
-   textSize(100);
-   text("!", 200, 100, 100, 100);
-};
+//var tekenTijd = function(x, y) {
+  // fill(0, 13, 255);
+   //textSize(100);
+   //text("!", 200, 100, 100, 100);
+//};
 
 var tekenPunten = function(x, y) {
     
@@ -133,15 +133,13 @@ var beweegKogel = function() {
  */
 var beweegMol = function() {
     // random omhoog
-    if (plaatsMolY = 299){
-    tijdTotZichtbaar = tijdTotZichtbaar - 1;
-    console.log (tijdTotZichtbaar);
-    }
+    tijdTotZichtbaar = tijdTotZichtbaar - 1;  // ergens anders neerzetten
+    console.log(tijdTotZichtbaar);
+
     //beweging omhoog
-    if ( tijdTotZichtbaar === 0 &&
-        plaatsMolY < 300 &&
-        plaatsMolY > 250) {
-        plaatsMolY= plaatsMolY - 1;
+    if (tijdTotZichtbaar <= 0 &&
+        plaatsMolY <= 330 && plaatsMolY > 250 ) {
+      plaatsMolY = plaatsMolY - 3;
     }
 
     // beweeg omlaag
@@ -149,11 +147,11 @@ var beweegMol = function() {
         mouseX > plaatsMolX - 60 && 
         mouseX < plaatsMolX + 60 && 
         mouseY > plaatsMolY - 60 && 
-        mouseY < plaatsMolY + 60  ){
-        plaatsMolY = 299;
-        plaatsMolX = //random(100,1180);
-        
-        
+        mouseY < plaatsMolY + 60 &&
+        tijdTotZichtbaar <= 0){
+      plaatsMolY = 330;
+      plaatsMolX = random(100, 1180);
+      resetTijdTotZichtbaar();
     }
     
 };
@@ -162,7 +160,7 @@ var beweegMol = function() {
  * Zoekt uit of de vijand is geraakt
  * @returns {boolean} true als vijand is geraakt
  */
-var checkVijandGeraakt = function() {
+  var checkVijandGeraakt = function() {
 
   return false;
 };
@@ -188,6 +186,14 @@ var checkGameOver = function() {
   return false;
 };
 
+/**
+ * Stelt de tijdTotZichtbaar-teller in op
+ * een random getal
+ */
+var resetTijdTotZichtbaar = function() {
+  tijdTotZichtbaar = random(0, 250);
+}
+
 
 /**
  * setup
@@ -198,6 +204,7 @@ function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
   createCanvas(1280, 720);
 
+  resetTijdTotZichtbaar();
   // Kleur de achtergrond blauw, zodat je het kunt zien
   background('deepskyblue');
 }
@@ -212,7 +219,6 @@ function setup() {
 function draw() {
   switch (spelStatus) {
     case SPELEN:
-      beweegVijand();
       beweegKogel();
       beweegMol();
       
@@ -230,7 +236,7 @@ function draw() {
       tekenMol(plaatsMolX, plaatsMolY);
       tekenVeld1();
       tekenVeld2();
-      tekenTijd(kogelX, kogelY);
+      //tekenTijd(kogelX, kogelY);
       tekenSpeler(spelerX, spelerY);
       tekenPunten()
     
