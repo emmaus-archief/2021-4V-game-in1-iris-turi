@@ -151,7 +151,7 @@ var beweegMol = function() {
         mouseY > plaatsMolY - 60 && 
         mouseY < plaatsMolY + 60  ){
         plaatsMolY = 299;
-        plaatsMolX = random(100,1180);
+        plaatsMolX = //random(100,1180);
         
         
     }
