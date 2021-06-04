@@ -138,11 +138,7 @@ var beweegMol = function() {
 
     //beweging omhoog
     if (tijdTotZichtbaar <= 0 &&
-<<<<<<< HEAD
-        plaatsMolY <= 299 && plaatsMolY > 250 ) {
-=======
         plaatsMolY <= 330 && plaatsMolY > 250 ) {
->>>>>>> ea9abd5196f24b3fb447f9194da5ac409ef103d6
       plaatsMolY = plaatsMolY - 3;
     }
 
@@ -242,7 +238,7 @@ function draw() {
       tekenVeld2();
       //tekenTijd(kogelX, kogelY);
       tekenSpeler(spelerX, spelerY);
-      tekenPunten()
+      tekenPunten();
     
 
       if (checkGameOver()) {
