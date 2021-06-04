@@ -44,6 +44,10 @@ var plaatsMolX = 200;
 var plaatsMolY = 330;
 
 var tijdTotZichtbaar ;
+var molGeklikt
+
+var points = 0;
+var pointsOneTime = true;
 
 /* ********************************************* */
 /*      functies die je gebruikt in je game      */
@@ -97,8 +101,35 @@ var tekenMol = function(x, y) {
 //};
 
 var tekenPunten = function(x, y) {
-    
-};
+    if ( tijdTotZichtbaar > 0 && tijdTotZichtbaar <= -300 && plaatsMolY === 250 && pointsOneTime && molGeklikt ) {
+     points = points + 5;
+     pointsOneTime = false;
+    }   
+
+     if (tijdTotZichtbaar > -300 && tijdTotZichtbaar <= -600 && plaatsMolY === 250 && pointsOneTime && molGeklikt) {
+     points = points + 4;
+     pointsOneTime = false;
+    }   
+
+     if (tijdTotZichtbaar > -600  && tijdTotZichtbaar <= -900 && plaatsMolY === 250 && pointsOneTime && molGeklikt) {
+     points = points + 3;
+     pointsOneTime = false;
+    }   
+
+     if (tijdTotZichtbaar > -900 && tijdTotZichtbaar <= -1200 && plaatsMolY === 250 && pointsOneTime && molGeklikt) {
+     points = points + 2;
+     pointsOneTime = false;
+    }   
+
+     if (tijdTotZichtbaar > -1200 && tijdTotZichtbaar <= 2000 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
+     points = points + 1;
+     pointsOneTime = false;
+    }   
+    fill(0,0,0);
+    textSize (75);
+    text ("points:" +  points, 950, 630, 300, 300);
+    //console.log (points);
+}
 
 
 /**
@@ -142,27 +173,34 @@ var beweegMol = function() {
       plaatsMolY = plaatsMolY - 3;
     }
 
-    // beweeg omlaag
-    if (mouseIsPressed && 
-        mouseX > plaatsMolX - 60 && 
-        mouseX < plaatsMolX + 60 && 
-        mouseY > plaatsMolY - 60 && 
-        mouseY < plaatsMolY + 60 &&
+    // beweeg omlaag 
+    if ( molGeklikt &&
         tijdTotZichtbaar <= 0){
       plaatsMolY = 330;
       plaatsMolX = random(100, 1180);
+      pointsOneTime = true;
       resetTijdTotZichtbaar();
+      console.log (plaatsMolY);
     }
     
 };
 
 /**
- * Zoekt uit of de vijand is geraakt
- * @returns {boolean} true als vijand is geraakt
+ * Zoekt uit of de mol is geklikt
+ * @returns {boolean} true als mol is geklikt
  */
-  var checkVijandGeraakt = function() {
-
-  return false;
+  var checkMolGeklikt = function() {
+        if (mouseIsPressed && 
+        mouseX > plaatsMolX - 60 && 
+        mouseX < plaatsMolX + 60 && 
+        mouseY > plaatsMolY - 60 && 
+        mouseY < plaatsMolY + 60) {
+          molGeklikt = true;  
+        }
+        else {
+          molGeklikt = false
+        }
+        console.log (checkMolGeklikt);
 };
 
 
@@ -222,7 +260,7 @@ function draw() {
       beweegKogel();
       beweegMol();
       
-      if (checkVijandGeraakt()) {
+      if (checkMolGeklikt()) {
         // punten erbij
         // nieuwe vijand maken
       }
@@ -238,6 +276,7 @@ function draw() {
       tekenVeld2();
       //tekenTijd(kogelX, kogelY);
       tekenSpeler(spelerX, spelerY);
+      // @ts-ignore
       tekenPunten();
     
 
