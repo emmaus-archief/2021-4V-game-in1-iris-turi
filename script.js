@@ -41,7 +41,7 @@ var widthMol = 120;
 var heightMol = 120;
 
 var plaatsMolX = 200;
-var plaatsMolY = 299;
+var plaatsMolY = 330;
 
 var tijdTotZichtbaar ;
 
@@ -64,12 +64,12 @@ var tekenVeld1 = function () {
 
 var tekenVeld2 = function () { 
   fill("limeGreen");
-  rect(0, yBack * 2 - 55, widthBack, heightBack * 3/4 ); // onderste deel groen
+  rect(0, yBack * 2 - 55, widthBack, heightBack * 3/4 ); //onderste deel groen
 };
 
 
 /**
- * Tekent de vijand
+ * Tekent de mol
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
@@ -77,7 +77,7 @@ var tekenMol = function(x, y) {
     fill("#A0522D")
     ellipse(plaatsMolX, plaatsMolY,widthMol,heightMol) //hoofd mol
     fill("#241600") 
-    ellipse(plaatsMolX, plaatsMolY, widthMol/5, heightMol/5) //neus mol
+    ellipse(plaatsMolX, plaatsMolY, widthMol/5, heightMol/5) //Neus mol
     fill("black")
     ellipse(plaatsMolX +20 ,plaatsMolY - 20, widthMol/6, heightMol/6) //rechter oog 
     ellipse(plaatsMolX -20,plaatsMolY -20, widthMol/6, heightMol/6) //linker oog 
@@ -86,14 +86,20 @@ var tekenMol = function(x, y) {
 
 
 /**
- * Tekent de kogel of de bal
+ * Tekent de tijd
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
-var tekenKogel = function(x, y) {
+//var tekenTijd = function(x, y) {
+  // fill(0, 13, 255);
+   //textSize(100);
+   //text("!", 200, 100, 100, 100);
+//};
 
-
+var tekenPunten = function(x, y) {
+    
 };
+
 
 /**
  * Tekent de speler
@@ -132,7 +138,11 @@ var beweegMol = function() {
 
     //beweging omhoog
     if (tijdTotZichtbaar <= 0 &&
+<<<<<<< HEAD
         plaatsMolY <= 299 && plaatsMolY > 250 ) {
+=======
+        plaatsMolY <= 330 && plaatsMolY > 250 ) {
+>>>>>>> ea9abd5196f24b3fb447f9194da5ac409ef103d6
       plaatsMolY = plaatsMolY - 3;
     }
 
@@ -143,7 +153,7 @@ var beweegMol = function() {
         mouseY > plaatsMolY - 60 && 
         mouseY < plaatsMolY + 60 &&
         tijdTotZichtbaar <= 0){
-      plaatsMolY = 299;
+      plaatsMolY = 330;
       plaatsMolX = random(100, 1180);
       resetTijdTotZichtbaar();
     }
@@ -192,7 +202,7 @@ var resetTijdTotZichtbaar = function() {
 /**
  * setup
  * de code in deze functie wordt één keer uitgevoerd door
- * de p5 library, zodra het spel geladen is in de browser
+ * de p5 library, zodra het spel geladen is in de browser.
  */
 function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
@@ -230,8 +240,9 @@ function draw() {
       tekenMol(plaatsMolX, plaatsMolY);
       tekenVeld1();
       tekenVeld2();
-      tekenKogel(kogelX, kogelY);
+      //tekenTijd(kogelX, kogelY);
       tekenSpeler(spelerX, spelerY);
+      tekenPunten()
     
 
       if (checkGameOver()) {
