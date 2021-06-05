@@ -120,7 +120,7 @@ var tekenPunten = function(x, y) {
      points = points + 2;
      pointsOneTime = false;
     }   
-       else if (tijdTotZichtbaar > -1200 && tijdTotZichtbaar <= 2000 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
+     else if (tijdTotZichtbaar > -1200 && tijdTotZichtbaar <= 2000 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
      points = points + 1;
      pointsOneTime = false;
     }   
