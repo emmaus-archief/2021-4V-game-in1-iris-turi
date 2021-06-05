@@ -101,35 +101,36 @@ var tekenMol = function(x, y) {
 //};
 
 var tekenPunten = function(x, y) {
-    if ( tijdTotZichtbaar > 0 && tijdTotZichtbaar <= -300 && plaatsMolY === 250 && pointsOneTime && molGeklikt ) {
+    if ( tijdTotZichtbaar > 0 && tijdTotZichtbaar <= -300 && plaatsMolY === 249 && pointsOneTime && molGeklikt ) {
      points = points + 5;
      pointsOneTime = false;
     }   
 
-     if (tijdTotZichtbaar > -300 && tijdTotZichtbaar <= -600 && plaatsMolY === 250 && pointsOneTime && molGeklikt) {
+     else if (tijdTotZichtbaar > -300 && tijdTotZichtbaar <= -600 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
      points = points + 4;
      pointsOneTime = false;
     }   
 
-     if (tijdTotZichtbaar > -600  && tijdTotZichtbaar <= -900 && plaatsMolY === 250 && pointsOneTime && molGeklikt) {
+     else if (tijdTotZichtbaar > -600  && tijdTotZichtbaar <= -900 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
      points = points + 3;
      pointsOneTime = false;
     }   
 
-     if (tijdTotZichtbaar > -900 && tijdTotZichtbaar <= -1200 && plaatsMolY === 250 && pointsOneTime && molGeklikt) {
+     else if (tijdTotZichtbaar > -900 && tijdTotZichtbaar <= -1200 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
      points = points + 2;
      pointsOneTime = false;
     }   
-
-     if (tijdTotZichtbaar > -1200 && tijdTotZichtbaar <= 2000 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
+       else if (tijdTotZichtbaar > -1200 && tijdTotZichtbaar <= 2000 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
      points = points + 1;
      pointsOneTime = false;
     }   
     fill(0,0,0);
     textSize (75);
     text ("points:" +  points, 950, 630, 300, 300);
-    //console.log (points);
+    console.log (points);
 }
+
+     
 
 
 /**
@@ -138,7 +139,7 @@ var tekenPunten = function(x, y) {
  * @param {number} y y-coördinaat
  */
 var tekenSpeler = function(x, y) {   
-   
+
 };
 
 
@@ -177,7 +178,7 @@ var beweegMol = function() {
     if ( molGeklikt &&
         tijdTotZichtbaar <= 0){
       plaatsMolY = 330;
-      plaatsMolX = random(100, 1180);
+      
       pointsOneTime = true;
       resetTijdTotZichtbaar();
       console.log (plaatsMolY);
@@ -185,12 +186,14 @@ var beweegMol = function() {
     
 };
 
+
+
 /**
  * Zoekt uit of de mol is geklikt
  * @returns {boolean} true als mol is geklikt
  */
   var checkMolGeklikt = function() {
-        if (mouseIsPressed && 
+    if (mouseIsPressed && 
         mouseX > plaatsMolX - 60 && 
         mouseX < plaatsMolX + 60 && 
         mouseY > plaatsMolY - 60 && 
@@ -200,7 +203,7 @@ var beweegMol = function() {
         else {
           molGeklikt = false
         }
-        console.log (checkMolGeklikt);
+        console.log (checkMolGeklikt);    
 };
 
 
@@ -272,6 +275,8 @@ function draw() {
 
       tekenAchtergrond ();
       tekenMol(plaatsMolX, plaatsMolY);
+      tekenMol(plaatsMolX + 150, plaatsMolY);
+      tekenMol(plaatsMolX + 300, plaatsMolY);
       tekenVeld1();
       tekenVeld2();
       //tekenTijd(kogelX, kogelY);
