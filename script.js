@@ -217,6 +217,14 @@ var checkSpelerGeraakt = function() {
   return false;
 };
 
+/**
+ * Zoekt uit of het spel moet beginnen
+ * @returns {boolean} true als het spel is afgelopen
+ */
+var checkGameOver = function() {
+    
+  return false;
+};
 
 /**
  * Zoekt uit of het spel is afgelopen

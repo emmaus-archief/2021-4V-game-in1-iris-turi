@@ -21,7 +21,7 @@ Basis: uitleg, spelen, afgaan en punten
 - [ ] tijd bijhouden
 - [ ] game over (na 60 seconde)
 - [ ] uitlegscherm
-- [ ] random tijd voor verschijnen van mol
+- [x] random tijd voor verschijnen van mol
 - [ ] 2 mollen maken in plaats van 1 (grote stap)
 - [ ] 3 mollen
 - [ ] meer dan 3 mollen (met array)
