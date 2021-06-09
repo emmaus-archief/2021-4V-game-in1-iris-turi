@@ -90,11 +90,18 @@ var tekenMol = function(x, y) {
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
-//var tekenTijd = function(x, y) {
-  // fill(0, 13, 255);
-   //textSize(100);
-   //text("!", 200, 100, 100, 100);
-//};
+var tekenTijd = function(x, y) {
+    fill(0, 255, 255);
+    textSize(100);
+    text("10", 200, 100, 100, 100);
+
+};
+var timer = function(x, y){
+
+    
+
+}
+
 
 var tekenPunten = function(x, y) {
     
@@ -236,7 +243,7 @@ function draw() {
       tekenMol(plaatsMolX, plaatsMolY);
       tekenVeld1();
       tekenVeld2();
-      //tekenTijd(kogelX, kogelY);
+      tekenTijd(kogelX, kogelY);
       tekenSpeler(spelerX, spelerY);
       tekenPunten()
     
