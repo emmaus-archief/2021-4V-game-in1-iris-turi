@@ -20,7 +20,7 @@
 const UITLEG = 0;
 const SPELEN = 1;
 const GAMEOVER = 2;
-var spelStatus = UITLEG;
+var spelStatus = SPELEN;
 
 var spelerX = 200; // x-positie van speler
 var spelerY = 100; // y-positie van speler
@@ -191,7 +191,7 @@ var beweegMol = function() {
 
 /**
  * Zoekt uit of de mol is geklikt
- * @returns {boolean} true als mol is geklikt
+ * retuns molgeklikt true als mol is geklikt
  */
   var checkMolGeklikt = function() {
     if (mouseIsPressed && 
@@ -220,9 +220,10 @@ var checkSpelerGeraakt = function() {
 
 /**
  * Zoekt uit of het spel moet beginnen
- * @returns {boolean} true als het spel is afgelopen
+ *  true als het spel is afgelopen
  */
 var checkStartGame = function() {
+    fill(255,255,255);
     text ("Klik op zo veel mogelijk mollen in een minuut. Hoe sneller je klikt hoe meer punten!", 500, 500, 30, 30);
     
   ;
@@ -271,6 +272,7 @@ function draw() {
   switch (spelStatus) {
     case UITLEG:
       checkStartGame();
+      break;
     case SPELEN:
       beweegKogel();
       beweegMol();
