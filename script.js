@@ -49,6 +49,7 @@ var molGeklikt
 var points = 0;
 var pointsOneTime = true;
 
+var time = 59
 /* ********************************************* */
 /*      functies die je gebruikt in je game      */
 /* ********************************************* */
@@ -95,12 +96,16 @@ var tekenMol = function(x, y) {
  * @param {number} y y-coördinaat
  */
 var tekenTijd = function(x, y) {
-    fill(0, 255, 255);
-    textSize(100);
-    text("10", 200, 100, 100, 100);
+    fill(0,0,0);
+    textSize(60);
+    text(time, 1000, 570, 310, 300);
 
 };
 var timer = function(x, y){
+    if(1 seconde){
+        time = time -1
+    }
+
 
     
 
@@ -295,6 +300,7 @@ function draw() {
       tekenVeld1();
       tekenVeld2();
       tekenTijd(kogelX, kogelY);
+      timer(kogelX, kogelY);
       tekenSpeler(spelerX, spelerY);
       // @ts-ignore
       tekenPunten();
