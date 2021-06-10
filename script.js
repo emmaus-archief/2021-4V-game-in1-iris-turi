@@ -102,8 +102,8 @@ var tekenTijd = function(x, y) {
 
 };
 var timer = function(x, y){
-    if(1 seconde){
-        time = time -1
+    if(){
+        
     }
 
 
@@ -306,7 +306,7 @@ function draw() {
       tekenVeld1();
       tekenVeld2();
       tekenTijd(kogelX, kogelY);
-      timer(kogelX, kogelY);
+      //timer(kogelX, kogelY);
       tekenSpeler(spelerX, spelerY);
       // @ts-ignore
       tekenPunten();
