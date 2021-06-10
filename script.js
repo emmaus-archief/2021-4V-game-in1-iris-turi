@@ -20,7 +20,7 @@
 const UITLEG = 0;
 const SPELEN = 1;
 const GAMEOVER = 2;
-var spelStatus = SPELEN;
+var spelStatus = UITLEG;
 
 var spelerX = 200; // x-positie van speler
 var spelerY = 100; // y-positie van speler
@@ -101,26 +101,26 @@ var tekenMol = function(x, y) {
 //};
 
 var tekenPunten = function(x, y) {
-    if ( tijdTotZichtbaar < 0 && tijdTotZichtbaar >= -30 && plaatsMolY === 249 && pointsOneTime && molGeklikt ) {
+    if ( tijdTotZichtbaar < 0 && tijdTotZichtbaar >= -20 && plaatsMolY === 249 && pointsOneTime && molGeklikt ) {
      points = points + 5;
      pointsOneTime = false;
     }   
 
-     else if (tijdTotZichtbaar < -60 && tijdTotZichtbaar >= -90 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
+     else if (tijdTotZichtbaar < -20 && tijdTotZichtbaar >= -30 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
      points = points + 4;
      pointsOneTime = false;
     }   
 
-     else if (tijdTotZichtbaar < -120  && tijdTotZichtbaar >= -150 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
+     else if (tijdTotZichtbaar < -30  && tijdTotZichtbaar >= -40 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
      points = points + 3;
      pointsOneTime = false;
     }   
 
-     else if (tijdTotZichtbaar < -150 && tijdTotZichtbaar >= -180 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
+     else if (tijdTotZichtbaar < -40 && tijdTotZichtbaar >= -50 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
      points = points + 2;
      pointsOneTime = false;
     }   
-     else if (tijdTotZichtbaar < -180 && tijdTotZichtbaar >= 1000 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
+     else if (tijdTotZichtbaar < -50 && tijdTotZichtbaar >= 200 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
      points = points + 1;
      pointsOneTime = false;
     }   
