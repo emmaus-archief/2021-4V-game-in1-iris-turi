@@ -20,7 +20,7 @@
 const UITLEG = 0;
 const SPELEN = 1;
 const GAMEOVER = 2;
-var spelStatus = UITLEG;
+var spelStatus = SPELEN;
 
 var spelerX = 200; // x-positie van speler
 var spelerY = 100; // y-positie van speler
@@ -44,7 +44,7 @@ var plaatsMolX = 200;
 var plaatsMolY = 330;
 
 var tijdTotZichtbaar ;
-var molGeklikt
+var molGeklikt;
 
 var points = 0;
 var pointsOneTime = true;
@@ -101,26 +101,26 @@ var tekenMol = function(x, y) {
 //};
 
 var tekenPunten = function(x, y) {
-    if ( tijdTotZichtbaar > 0 && tijdTotZichtbaar <= -300 && plaatsMolY === 249 && pointsOneTime && molGeklikt ) {
+    if ( tijdTotZichtbaar < 0 && tijdTotZichtbaar >= -30 && plaatsMolY === 249 && pointsOneTime && molGeklikt ) {
      points = points + 5;
      pointsOneTime = false;
     }   
 
-     else if (tijdTotZichtbaar > -300 && tijdTotZichtbaar <= -600 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
+     else if (tijdTotZichtbaar < -60 && tijdTotZichtbaar >= -90 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
      points = points + 4;
      pointsOneTime = false;
     }   
 
-     else if (tijdTotZichtbaar > -600  && tijdTotZichtbaar <= -900 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
+     else if (tijdTotZichtbaar < -120  && tijdTotZichtbaar >= -150 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
      points = points + 3;
      pointsOneTime = false;
     }   
 
-     else if (tijdTotZichtbaar > -900 && tijdTotZichtbaar <= -1200 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
+     else if (tijdTotZichtbaar < -150 && tijdTotZichtbaar >= -180 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
      points = points + 2;
      pointsOneTime = false;
     }   
-     else if (tijdTotZichtbaar > -1200 && tijdTotZichtbaar <= 2000 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
+     else if (tijdTotZichtbaar < -180 && tijdTotZichtbaar >= 1000 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
      points = points + 1;
      pointsOneTime = false;
     }   
@@ -224,7 +224,8 @@ var checkSpelerGeraakt = function() {
  */
 var checkStartGame = function() {
     fill(255,255,255);
-    text ("Klik op zo veel mogelijk mollen in een minuut. Hoe sneller je klikt hoe meer punten!", 500, 500, 30, 30);
+    textSize (300);
+    text ("Klik op zo veel mogelijk mollen in een minuut. Hoe sneller je klikt hoe meer punten!", 400, 500, 30, 30);
     
   ;
 };
