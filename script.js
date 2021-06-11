@@ -120,7 +120,7 @@ var tekenPunten = function(x, y) {
      points = points + 2;
      pointsOneTime = false;
     }   
-     else if (tijdTotZichtbaar < -50 && tijdTotZichtbaar >= 200 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
+     else if (tijdTotZichtbaar < -50 && tijdTotZichtbaar >= 20000 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
      points = points + 1;
      pointsOneTime = false;
     }   
@@ -224,9 +224,15 @@ var checkSpelerGeraakt = function() {
  */
 var checkStartGame = function() {
     fill(255,255,255);
-    textSize (300);
-    text ("Klik op zo veel mogelijk mollen in een minuut. Hoe sneller je klikt hoe meer punten!", 400, 500, 30, 30);
-    
+    textSize (60);
+    // @ts-ignore
+    textAlign(CENTER);
+    text ("Klik op zo veel mogelijk mollen in een minuut. Hoe sneller je klikt hoe meer punten!", 50, 200, 1180, 720);
+    textSize (50);
+    text ("klik op enter om te beginnen", 100, 500, 1180, 700);
+    if (keyIsDown(13)){
+        spelStatus = SPELEN;
+    }
   ;
 };
 
@@ -258,8 +264,9 @@ function setup() {
   createCanvas(1280, 720);
 
   resetTijdTotZichtbaar();
-  // Kleur de achtergrond blauw, zodat je het kunt zien
+  // tekent de achtergrond
   background('deepskyblue');
+  
 }
 
 
@@ -272,12 +279,15 @@ function setup() {
 function draw() {
   switch (spelStatus) {
     case UITLEG:
+      tekenAchtergrond ();
       checkStartGame();
       break;
     case SPELEN:
+      tekenAchtergrond ();  
       beweegKogel();
       beweegMol();
       
+      // @ts-ignore
       if (checkMolGeklikt()) {
         // punten erbij
         // nieuwe vijand maken
@@ -288,7 +298,7 @@ function draw() {
         // eventueel: nieuwe speler maken
       }
 
-      tekenAchtergrond ();
+      
       tekenMol(plaatsMolX, plaatsMolY);
       tekenMol(plaatsMolX + 150, plaatsMolY);
       tekenMol(plaatsMolX + 300, plaatsMolY);
