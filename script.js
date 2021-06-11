@@ -78,6 +78,21 @@ var tekenVeld2 = function () {
     rect(0, yBack * 2 - 55, widthBack, heightBack * 3 / 4); //onderste deel groen
 };
 
+var tekenZon = function () {
+    
+    //zon
+    fill(255, 247, 0);
+    ellipse(20,20,200,200);
+    
+    //zonnestralen
+    fill(255, 247, 0);
+    line(135,20,220,20);
+    line(130,60,210,70);
+    line(110,90,170,140);
+    line(70,120,100,180);
+    line(20,130,20,200);
+};
+
 
 /**
  * Tekent de mol
@@ -128,10 +143,6 @@ async function TimerLoop() {
 
             //tekenTijd (kogelX,kogelY,"")
             
-
-
-            
-
            
         }
     }
@@ -177,9 +188,9 @@ var tekenPunten = function (x, y) {
         points = points + 1;
         pointsOneTime = false;
     }
-    fill(0, 0, 0);
-    textSize(40);
-    text(" Time: " + jn + "\n Points: " + points, 950, 630, 300, 300);
+    fill(0, 4, 115);
+    textSize(50);
+    text(" Time: " + jn + "\n Points: " + points, 1000, 560, 350, 350);
     console.log(points);
 }
 
@@ -350,6 +361,7 @@ function draw() {
             tekenMol(plaatsMolX + 300, plaatsMolY);
             tekenVeld1();
             tekenVeld2();
+            tekenZon();
             tekenSpeler(spelerX, spelerY);
             // @ts-ignore
             tekenPunten();

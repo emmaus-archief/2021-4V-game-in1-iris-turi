@@ -16,7 +16,7 @@ Basis: uitleg, spelen, afgaan en punten
 - [x] na x aantal seconde mol weer weg en terug
 - [x] punten op scherm zetten
 - [x] punten kunnen scoren
-- [ ] aan de hand van de snelheid meer punten kunnen halen
+- [x] aan de hand van de snelheid meer punten kunnen halen
 - [ ] tijd op scherm zettem
 - [ ] tijd bijhouden
 - [ ] game over (na 60 seconde)
