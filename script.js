@@ -83,7 +83,7 @@ var tekenZon = function () {
     //zon
     fill(255, 247, 0);
     ellipse(20,20,200,200);
-    
+
     //zonnestralen
     fill(255, 247, 0);
     line(135,20,220,20);
