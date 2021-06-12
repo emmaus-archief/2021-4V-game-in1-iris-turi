@@ -119,7 +119,6 @@ function sleep(ms) {
 }
 
 
-
 async function TimerLoop() {
 
    
@@ -147,20 +146,13 @@ async function TimerLoop() {
         }
     }
 }
- var tekenTijd = function (x, y) {
-                fill(0, 0, 0);
-                textSize(60);
-                text("hoi", 1000, 570, 310, 300);
-            }; 
+ 
 
 /**
  * Tekent de tijd
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
-
- 
-
 
 
 
@@ -218,9 +210,7 @@ var beweegVijand = function () {
 /**
  * Updatet globale variabelen met positie van kogel of bal
  */
-var beweegKogel = function () {
 
-};
 
 
 /**
@@ -346,7 +336,7 @@ function draw() {
             checkStartGame();
             break;
         case SPELEN:
-            beweegKogel();
+            
             beweegMol();
 
              if (checkMolGeklikt()) {
@@ -363,7 +353,6 @@ function draw() {
             tekenAchtergrond();
             
             TimerLoop();
-            tekenTijd();
             tekenMol(plaatsMolX, plaatsMolY);
             tekenMol(plaatsMolX + 150, plaatsMolY);
             tekenMol(plaatsMolX + 300, plaatsMolY);
