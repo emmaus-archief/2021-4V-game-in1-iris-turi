@@ -49,13 +49,12 @@ var molGeklikt;
 var points = 0;
 var pointsOneTime = true;
 
-
-
+var checkGameOver;
 
 var today = new Date();
 var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 var TimerAlEenKeer = false;
-
+var jn = "60";
 /* ********************************************* */
 /*      functies die je gebruikt in je game      */
 /* ********************************************* */
@@ -79,7 +78,6 @@ var tekenVeld2 = function () {
 };
 
 var tekenZon = function () {
-    
     //zon
     fill(255, 247, 0);
     ellipse(20,20,200,200);
@@ -111,7 +109,7 @@ var tekenMol = function (x, y) {
 };
 
 
-var jn = "60";
+
 
 
 function sleep(ms) {
@@ -148,13 +146,6 @@ async function TimerLoop() {
 }
  
 
-/**
- * Tekent de tijd
- * @param {number} x x-coördinaat
- * @param {number} y y-coördinaat
- */
-
-
 
 var tekenPunten = function (x, y) {
  if ( tijdTotZichtbaar < 0 && tijdTotZichtbaar >= -50 && plaatsMolY === 249 && pointsOneTime && molGeklikt ) {
@@ -180,39 +171,14 @@ var tekenPunten = function (x, y) {
     }   
     fill(0, 4, 115);
     textSize(50);
-    text(" Time: " + jn + "\n Points: " + points, 1000, 560, 350, 350);
+    text(" Time: " + jn + "\n Points: " + points, 950, 560, 350, 350);
     console.log(points);
 }
 
 
 
-
 /**
- * Tekent de speler
- * @param {number} x x-coördinaat
- * @param {number} y y-coördinaat
- */
-var tekenSpeler = function (x, y) {
-
-};
-
-
-/**
- * Updatet globale variabelen met positie van vijand of tegenspeler
- */
-var beweegVijand = function () {
-
-};
-
-
-/**
- * Updatet globale variabelen met positie van kogel of bal
- */
-
-
-
-/**
- * Kijkt wat de toetsen/muis etc zijn.
+ * beweegt mol
  * Updatet globale variabele plaatsMolY
  */
 var beweegMol = function () {
@@ -261,21 +227,10 @@ var checkMolGeklikt = function () {
 
 
 /**
- * Zoekt uit of de speler is geraakt
- * bijvoorbeeld door botsing met vijand
- * @returns {boolean} true als speler is geraakt
- */
-var checkSpelerGeraakt = function () {
-
-    return false;
-};
-
-/**
  * Zoekt uit of het spel moet beginnen
  *  true als het spel is afgelopen
  */
 var checkStartGame = function () {
-    
     fill(255,255,255);
     textSize (60);
     // @ts-ignore
@@ -305,25 +260,16 @@ var checkStartGameOver = function () {
 
 };
 
-
-var tijdOm = function () {
-    if (jn = "1"){
-        spelStatus = GAMEOVER
-
-    }
-    
-
-};
-
-
-
 /**
  * Zoekt uit of het spel is afgelopen
  * @returns {boolean} true als het spel is afgelopen
  */
-var checkGameOver = function () {
-
-    return false;
+var tijdOm = function () {
+    checkGameOver = false;
+    if (jn == "0"){
+        checkGameOver = true;
+    }
+  
 };
 
 /**
@@ -358,11 +304,6 @@ function setup() {
 
 function draw() {
     switch (spelStatus) {
-        case GAMEOVER:
-            checkStartGameOver();
-            tekenAchtergrond();
-            break;
-
         case UITLEG:
             tekenVeld1();
             tekenVeld2 ();
@@ -372,18 +313,8 @@ function draw() {
         case SPELEN:
             
             beweegMol();
-
-             if (checkMolGeklikt()) {
-               // punten erbij
-               // nieuwe vijand maken
-             }
-             
-            if (checkSpelerGeraakt()) {
-                // leven eraf of gezondheid verlagen
-                // eventueel: nieuwe speler maken
-            }
-
-
+            checkMolGeklikt();
+            
             tekenAchtergrond();
             tekenZon();
             
@@ -397,13 +328,17 @@ function draw() {
             // @ts-ignore
             tekenPunten();
             console.log(jn + "in Draw")
-            tijdOm();
+            
 
 
-
-            if (checkGameOver()) {
-                spelStatus = GAMEOVER;
-            }
+          // if (checkGameOver = true) {
+           //     spelStatus = GAMEOVER;
+            //}
+            break;
+             case GAMEOVER:
+            tekenAchtergrond();
+             checkStartGameOver();
+            
             break;
     }
 }
