@@ -49,13 +49,11 @@ var molGeklikt;
 var points = 0;
 var pointsOneTime = true;
 
-
-
-
 var today = new Date();
 var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 var TimerAlEenKeer = false;
 
+var jn = "60";
 /* ********************************************* */
 /*      functies die je gebruikt in je game      */
 /* ********************************************* */
@@ -109,9 +107,6 @@ var tekenMol = function (x, y) {
     ellipse(plaatsMolX - 20, plaatsMolY - 20, widthMol / 6, heightMol / 6) //linker oog 
 
 };
-
-
-var jn = "60";
 
 
 function sleep(ms) {
@@ -185,26 +180,6 @@ var tekenPunten = function (x, y) {
 }
 
 
-
-
-/**
- * Tekent de speler
- * @param {number} x x-coördinaat
- * @param {number} y y-coördinaat
- */
-var tekenSpeler = function (x, y) {
-
-};
-
-
-/**
- * Updatet globale variabelen met positie van vijand of tegenspeler
- */
-var beweegVijand = function () {
-
-};
-
-
 /**
  * Updatet globale variabelen met positie van kogel of bal
  */
@@ -238,7 +213,6 @@ var beweegMol = function () {
     }
 
 };
-
 
 
 /**
@@ -303,17 +277,7 @@ var checkStartGameOver = function () {
 
 
 };
-
-
-var tijdOm = function () {
-    if (jn = "1"){
-        spelStatus = GAMEOVER
-
-    }
-    
-
-};
-
+ 
 
 
 /**
@@ -389,11 +353,10 @@ function draw() {
             tekenMol(plaatsMolX, plaatsMolY);
             tekenVeld1();
             tekenVeld2();
-            tekenSpeler(spelerX, spelerY);
             // @ts-ignore
             tekenPunten();
             console.log(jn + "in Draw")
-            tijdOm();
+        
 
 
 

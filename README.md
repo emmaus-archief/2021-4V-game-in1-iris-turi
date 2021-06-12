@@ -17,10 +17,10 @@ Basis: uitleg, spelen, afgaan en punten
 - [x] punten op scherm zetten
 - [x] punten kunnen scoren
 - [x] aan de hand van de snelheid meer punten kunnen halen
-- [ ] tijd op scherm zettem
-- [ ] tijd bijhouden
+- [x] tijd op scherm zettem
+- [x] tijd bijhouden
 - [ ] game over (na 60 seconde)
-- [ ] uitlegscherm
+- [x] uitlegscherm
 - [x] random tijd voor verschijnen van mol
 - [ ] 2 mollen maken in plaats van 1 (grote stap)
 - [ ] 3 mollen
@@ -33,7 +33,7 @@ Uitbreiding:
 - [ ] tablad voor level kiezen
 
 Uitbreiding: *bedenk iets, bijvoorbeeld bewegende achtergrond*
-- [ ] achtergrond mooier maken
+- [x] achtergrond mooier maken
 - [ ] *later uitwerken*
 - [ ] *later uitwerken*
 
