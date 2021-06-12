@@ -165,24 +165,24 @@ async function TimerLoop() {
 
 
 var tekenPunten = function (x, y) {
- if ( tijdTotZichtbaar < 0 && tijdTotZichtbaar >= -20 && plaatsMolY === 249 && pointsOneTime && molGeklikt ) {
+ if ( tijdTotZichtbaar < 0 && tijdTotZichtbaar >= -50 && plaatsMolY === 249 && pointsOneTime && molGeklikt ) {
      points = points + 5;
      pointsOneTime = false;
     }   
-     else if (tijdTotZichtbaar < -20 && tijdTotZichtbaar >= -30 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
+     else if (tijdTotZichtbaar < -50 && tijdTotZichtbaar >= -55 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
      points = points + 4;
      pointsOneTime = false;
     }   
-     else if (tijdTotZichtbaar < -30  && tijdTotZichtbaar >= -40 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
+     else if (tijdTotZichtbaar < -55  && tijdTotZichtbaar >= -65 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
      points = points + 3;
      pointsOneTime = false;
     }   
-     else if (tijdTotZichtbaar < -40 && tijdTotZichtbaar >= -50 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
+     else if (tijdTotZichtbaar < -65 && tijdTotZichtbaar >= -100 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
      points = points + 2;
      pointsOneTime = false;
     }   
     
-     else if (tijdTotZichtbaar < -50 && tijdTotZichtbaar >= 20000 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
+     else if (tijdTotZichtbaar < -100 && tijdTotZichtbaar >= 20000 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
      points = points + 1;
      pointsOneTime = false;
     }   
@@ -285,7 +285,8 @@ var checkSpelerGeraakt = function () {
  *  true als het spel is afgelopen
  */
 var checkStartGame = function () {
-     fill(255,255,255);
+    
+    fill(255,255,255);
     textSize (60);
     // @ts-ignore
     textAlign(CENTER);
@@ -341,7 +342,8 @@ function setup() {
 function draw() {
     switch (spelStatus) {
         case UITLEG:
-            tekenAchtergrond();
+            tekenVeld1();
+            tekenVeld2 ();
             tekenZon();
             checkStartGame();
             break;
@@ -362,13 +364,15 @@ function draw() {
 
             tekenAchtergrond();
             tekenZon();
+            
 
             TimerLoop();
             tekenTijd();
             tekenMol(plaatsMolX, plaatsMolY);
+          //  tekenSpeler(spelerX, spelerY);
             tekenVeld1();
             tekenVeld2();
-            tekenSpeler(spelerX, spelerY);
+
             // @ts-ignore
             tekenPunten();
             console.log(jn + "in Draw")
