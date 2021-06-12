@@ -151,7 +151,7 @@ async function TimerLoop() {
                 fill(0, 0, 0);
                 textSize(60);
                 text("hoi", 1000, 570, 310, 300);
-            };
+            }; 
 
 /**
  * Tekent de tijd
