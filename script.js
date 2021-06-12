@@ -295,7 +295,7 @@ var checkStartGameOver = function () {
     // @ts-ignore
     textAlign(CENTER);
     text("GAME OVER!", 50,200,500,50);
-    textSize(30)
+    textSize(30);
     text ("klik op enter om opnieuw te beginnen", 100, 500, 1180, 700);
     if (keyIsDown(13)){
         spelStatus = SPELEN; 
