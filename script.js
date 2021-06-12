@@ -157,29 +157,27 @@ async function TimerLoop() {
 
 
 var tekenPunten = function (x, y) {
-    if (tijdTotZichtbaar > 0 && tijdTotZichtbaar <= -300 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
-        points = points + 5;
-        pointsOneTime = false;
-    }
-
-    else if (tijdTotZichtbaar > -300 && tijdTotZichtbaar <= -600 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
-        points = points + 4;
-        pointsOneTime = false;
-    }
-
-    else if (tijdTotZichtbaar > -600 && tijdTotZichtbaar <= -900 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
-        points = points + 3;
-        pointsOneTime = false;
-    }
-
-    else if (tijdTotZichtbaar > -900 && tijdTotZichtbaar <= -1200 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
-        points = points + 2;
-        pointsOneTime = false;
-    }
-    else if (tijdTotZichtbaar > -1200 && tijdTotZichtbaar <= 2000 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
-        points = points + 1;
-        pointsOneTime = false;
-    }
+ if ( tijdTotZichtbaar < 0 && tijdTotZichtbaar >= -20 && plaatsMolY === 249 && pointsOneTime && molGeklikt ) {
+     points = points + 5;
+     pointsOneTime = false;
+    }   
+     else if (tijdTotZichtbaar < -20 && tijdTotZichtbaar >= -30 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
+     points = points + 4;
+     pointsOneTime = false;
+    }   
+     else if (tijdTotZichtbaar < -30  && tijdTotZichtbaar >= -40 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
+     points = points + 3;
+     pointsOneTime = false;
+    }   
+     else if (tijdTotZichtbaar < -40 && tijdTotZichtbaar >= -50 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
+     points = points + 2;
+     pointsOneTime = false;
+    }   
+    
+     else if (tijdTotZichtbaar < -50 && tijdTotZichtbaar >= 20000 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
+     points = points + 1;
+     pointsOneTime = false;
+    }   
     fill(0, 4, 115);
     textSize(50);
     text(" Time: " + jn + "\n Points: " + points, 1000, 560, 350, 350);
@@ -333,6 +331,8 @@ function setup() {
 function draw() {
     switch (spelStatus) {
         case UITLEG:
+            tekenAchtergrond();
+            tekenZon();
             checkStartGame();
             break;
         case SPELEN:
@@ -351,14 +351,12 @@ function draw() {
 
 
             tekenAchtergrond();
-            
+            tekenZon();
+
             TimerLoop();
             tekenMol(plaatsMolX, plaatsMolY);
-            tekenMol(plaatsMolX + 150, plaatsMolY);
-            tekenMol(plaatsMolX + 300, plaatsMolY);
             tekenVeld1();
             tekenVeld2();
-            tekenZon();
             tekenSpeler(spelerX, spelerY);
             // @ts-ignore
             tekenPunten();
