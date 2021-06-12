@@ -22,17 +22,6 @@ const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = UITLEG;
 
-var spelerX = 200; // x-positie van speler
-var spelerY = 100; // y-positie van speler
-
-var kogelX = 0;    // x-positie van kogel
-var kogelY = 0;    // y-positie van kogel
-
-var vijandX = 0;   // x-positie van vijand
-var vijandY = 0;   // y-positie van vijand
-
-var score = 0; // aantal behaalde punten
-
 var widthBack = 1280;
 var heightBack = 450;
 var yBack = 270;
@@ -320,7 +309,6 @@ function draw() {
 
             TimerLoop();
             tekenMol(plaatsMolX, plaatsMolY);
-          //  tekenSpeler(spelerX, spelerY);
             tekenVeld1();
             tekenVeld2();
 
