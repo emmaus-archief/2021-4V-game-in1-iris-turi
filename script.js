@@ -49,10 +49,11 @@ var molGeklikt;
 var points = 0;
 var pointsOneTime = true;
 
+var checkGameOver;
+
 var today = new Date();
 var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 var TimerAlEenKeer = false;
-
 var jn = "60";
 /* ********************************************* */
 /*      functies die je gebruikt in je game      */
@@ -77,7 +78,6 @@ var tekenVeld2 = function () {
 };
 
 var tekenZon = function () {
-    
     //zon
     fill(255, 247, 0);
     ellipse(20,20,200,200);
@@ -107,6 +107,9 @@ var tekenMol = function (x, y) {
     ellipse(plaatsMolX - 20, plaatsMolY - 20, widthMol / 6, heightMol / 6) //linker oog 
 
 };
+
+
+
 
 
 function sleep(ms) {
@@ -143,51 +146,39 @@ async function TimerLoop() {
 }
  
 
-/**
- * Tekent de tijd
- * @param {number} x x-coördinaat
- * @param {number} y y-coördinaat
- */
-
-
 
 var tekenPunten = function (x, y) {
- if ( tijdTotZichtbaar < 0 && tijdTotZichtbaar >= -20 && plaatsMolY === 249 && pointsOneTime && molGeklikt ) {
+ if ( tijdTotZichtbaar < 0 && tijdTotZichtbaar >= -50 && plaatsMolY === 249 && pointsOneTime && molGeklikt ) {
      points = points + 5;
      pointsOneTime = false;
     }   
-     else if (tijdTotZichtbaar < -20 && tijdTotZichtbaar >= -30 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
+     else if (tijdTotZichtbaar < -50 && tijdTotZichtbaar >= -55 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
      points = points + 4;
      pointsOneTime = false;
     }   
-     else if (tijdTotZichtbaar < -30  && tijdTotZichtbaar >= -40 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
+     else if (tijdTotZichtbaar < -55  && tijdTotZichtbaar >= -65 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
      points = points + 3;
      pointsOneTime = false;
     }   
-     else if (tijdTotZichtbaar < -40 && tijdTotZichtbaar >= -50 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
+     else if (tijdTotZichtbaar < -65 && tijdTotZichtbaar >= -100 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
      points = points + 2;
      pointsOneTime = false;
     }   
     
-     else if (tijdTotZichtbaar < -50 && tijdTotZichtbaar >= 20000 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
+     else if (tijdTotZichtbaar < -100 && tijdTotZichtbaar >= 20000 && plaatsMolY === 249 && pointsOneTime && molGeklikt) {
      points = points + 1;
      pointsOneTime = false;
     }   
     fill(0, 4, 115);
     textSize(50);
-    text(" Time: " + jn + "\n Points: " + points, 1000, 560, 350, 350);
+    text(" Time: " + jn + "\n Points: " + points, 950, 560, 350, 350);
     console.log(points);
 }
 
 
-/**
- * Updatet globale variabelen met positie van kogel of bal
- */
-
-
 
 /**
- * Kijkt wat de toetsen/muis etc zijn.
+ * beweegt mol
  * Updatet globale variabele plaatsMolY
  */
 var beweegMol = function () {
@@ -235,21 +226,11 @@ var checkMolGeklikt = function () {
 
 
 /**
- * Zoekt uit of de speler is geraakt
- * bijvoorbeeld door botsing met vijand
- * @returns {boolean} true als speler is geraakt
- */
-var checkSpelerGeraakt = function () {
-
-    return false;
-};
-
-/**
  * Zoekt uit of het spel moet beginnen
  *  true als het spel is afgelopen
  */
 var checkStartGame = function () {
-     fill(255,255,255);
+    fill(255,255,255);
     textSize (60);
     // @ts-ignore
     textAlign(CENTER);
@@ -277,16 +258,17 @@ var checkStartGameOver = function () {
 
 
 };
- 
-
 
 /**
  * Zoekt uit of het spel is afgelopen
  * @returns {boolean} true als het spel is afgelopen
  */
-var checkGameOver = function () {
-
-    return false;
+var tijdOm = function () {
+    checkGameOver = false;
+    if (jn == "0"){
+        checkGameOver = true;
+    }
+  
 };
 
 /**
@@ -321,48 +303,41 @@ function setup() {
 
 function draw() {
     switch (spelStatus) {
-        case GAMEOVER:
-            checkStartGameOver();
-            tekenAchtergrond();
-            break;
-
         case UITLEG:
-            tekenAchtergrond();
+            tekenVeld1();
+            tekenVeld2 ();
             tekenZon();
             checkStartGame();
             break;
         case SPELEN:
             
             beweegMol();
-
-             if (checkMolGeklikt()) {
-               // punten erbij
-               // nieuwe vijand maken
-             }
-             
-            if (checkSpelerGeraakt()) {
-                // leven eraf of gezondheid verlagen
-                // eventueel: nieuwe speler maken
-            }
-
-
+            checkMolGeklikt();
+            
             tekenAchtergrond();
             tekenZon();
+            
 
             TimerLoop();
             tekenMol(plaatsMolX, plaatsMolY);
+          //  tekenSpeler(spelerX, spelerY);
             tekenVeld1();
             tekenVeld2();
+
             // @ts-ignore
             tekenPunten();
             console.log(jn + "in Draw")
-        
+            
 
 
-
-            if (checkGameOver()) {
-                spelStatus = GAMEOVER;
-            }
+          // if (checkGameOver = true) {
+           //     spelStatus = GAMEOVER;
+            //}
+            break;
+             case GAMEOVER:
+            tekenAchtergrond();
+             checkStartGameOver();
+            
             break;
     }
 }
