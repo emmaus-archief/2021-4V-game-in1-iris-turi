@@ -20,7 +20,7 @@
 const UITLEG = 0;
 const SPELEN = 1;
 const GAMEOVER = 2;
-var spelStatus = SPELEN;
+var spelStatus = UITLEG;
 
 var spelerX = 200; // x-positie van speler
 var spelerY = 100; // y-positie van speler
@@ -287,8 +287,16 @@ var checkSpelerGeraakt = function () {
  *  true als het spel is afgelopen
  */
 var checkStartGame = function () {
-    fill(255, 255, 255);
-    text("Klik op zo veel mogelijk mollen in een minuut. Hoe sneller je klikt hoe meer punten!", 500, 500, 30, 30);
+     fill(255,255,255);
+    textSize (60);
+    // @ts-ignore
+    textAlign(CENTER);
+    text ("Klik op zo veel mogelijk mollen in een minuut. Hoe sneller je klikt hoe meer punten!", 50, 200, 1180, 720);
+    textSize (50);
+    text ("klik op enter om te beginnen", 100, 500, 1180, 700);
+    if (keyIsDown(13)){
+        spelStatus = SPELEN;
+    };
 
     ;
 };
