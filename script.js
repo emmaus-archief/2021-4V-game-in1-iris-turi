@@ -239,9 +239,10 @@ var checkStartGameOver = function () {
     textSize (80);
     // @ts-ignore
     textAlign(CENTER);
-    text("GAME OVER!", 50,200,500,50);
+    text("GAME OVER!", 50,200,1180,700);
+    text ("points: " + points, 50, 350, 1180, 700);
     textSize(30);
-    text ("klik op enter om opnieuw te beginnen", 100, 500, 1180, 700);
+    text ("klik op enter om opnieuw te beginnen", 50, 500, 1180, 700);
     if (keyIsDown(13)){
         spelStatus = SPELEN; 
     };
@@ -319,9 +320,9 @@ function draw() {
             
 
 
-          // if (checkGameOver = true) {
-           //     spelStatus = GAMEOVER;
-            //}
+           //if (checkGameOver = true) {
+           //    spelStatus = GAMEOVER;
+           // }
             break;
              case GAMEOVER:
             tekenAchtergrond();
