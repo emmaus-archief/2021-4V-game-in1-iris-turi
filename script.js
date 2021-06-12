@@ -119,7 +119,6 @@ function sleep(ms) {
 }
 
 
-
 async function TimerLoop() {
 
    
@@ -147,20 +146,13 @@ async function TimerLoop() {
         }
     }
 }
- var tekenTijd = function (x, y) {
-                fill(0, 0, 0);
-                textSize(60);
-                text("hoi", 1000, 570, 310, 300);
-            };
+ 
 
 /**
  * Tekent de tijd
  * @param {number} x x-coördinaat
  * @param {number} y y-coördinaat
  */
-
- 
-
 
 
 
@@ -216,9 +208,7 @@ var beweegVijand = function () {
 /**
  * Updatet globale variabelen met positie van kogel of bal
  */
-var beweegKogel = function () {
 
-};
 
 
 /**
@@ -300,6 +290,33 @@ var checkStartGame = function () {
     ;
 };
 
+var checkStartGameOver = function () {
+    fill(0,0,0);
+    textSize (80);
+    // @ts-ignore
+    textAlign(CENTER);
+    text("GAME OVER!", 50,200,500,50);
+    textSize(30)
+    text ("klik op enter om opnieuw te beginnen", 100, 500, 1180, 700);
+    if (keyIsDown(13)){
+        spelStatus = SPELEN; 
+    };
+
+
+};
+
+
+var tijdOm = function () {
+    if (jn = "1"){
+        spelStatus = GAMEOVER
+
+    }
+    
+
+};
+
+
+
 /**
  * Zoekt uit of het spel is afgelopen
  * @returns {boolean} true als het spel is afgelopen
@@ -341,6 +358,11 @@ function setup() {
 
 function draw() {
     switch (spelStatus) {
+        case GAMEOVER:
+            checkStartGameOver();
+            tekenAchtergrond();
+            break;
+
         case UITLEG:
             tekenVeld1();
             tekenVeld2 ();
@@ -348,7 +370,7 @@ function draw() {
             checkStartGame();
             break;
         case SPELEN:
-            beweegKogel();
+            
             beweegMol();
 
              if (checkMolGeklikt()) {
@@ -367,7 +389,6 @@ function draw() {
             
 
             TimerLoop();
-            tekenTijd();
             tekenMol(plaatsMolX, plaatsMolY);
           //  tekenSpeler(spelerX, spelerY);
             tekenVeld1();
@@ -376,6 +397,7 @@ function draw() {
             // @ts-ignore
             tekenPunten();
             console.log(jn + "in Draw")
+            tijdOm();
 
 
 
