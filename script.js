@@ -324,8 +324,8 @@ function draw() {
             
 
 
-           //if (checkGameOver = true) {
-           //    spelStatus = GAMEOVER;
+          // if (checkGameOver = true) {
+             //  spelStatus = GAMEOVER;
            // }
             break;
              case GAMEOVER:
