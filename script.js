@@ -242,6 +242,8 @@ var checkStartGame = function () {
 };
 
 function checkGameOver(){
+    fill(102,0,0);
+    rect(0,0,1500,1000);
     fill(0,0,0);
     textSize (80);
     // @ts-ignore
@@ -250,7 +252,7 @@ function checkGameOver(){
     text ("points: " + points, 50, 350, 1180, 700);
     textSize(30);
     text ("klik op enter om opnieuw te beginnen", 50, 500, 1180, 700);
-    if (keyIsDown(32)){
+    if (keyIsDown(13)){
         spelStatus = BEGINSPEL; 
     };
 
