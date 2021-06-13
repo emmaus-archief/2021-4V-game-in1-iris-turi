@@ -18,8 +18,10 @@
 /* ********************************************* */
 
 const UITLEG = 0;
-const SPELEN = 1;
-const GAMEOVER = 2;
+const BEGINSPEL = 1;
+const SPELEN = 2;
+const GAMEOVER = 3;
+
 var spelStatus = UITLEG;
 
 var widthBack = 1280;
@@ -38,11 +40,13 @@ var molGeklikt;
 var points = 0;
 var pointsOneTime = true;
 
+var speltijd = 60;
+
 
 var today = new Date();
 var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 var TimerAlEenKeer = false;
-var jn = "60"; 
+var jn = speltijd.toString(); 
 /* ********************************************* */
 /*      functies die je gebruikt in je game      */
 /* ********************************************* */
@@ -118,10 +122,10 @@ async function TimerLoop() {
 
 
         // Sleep in loop
-        for (let i = 0; i < 60; i++) {
+        for (let i = 0; i < speltijd; i++) {
             await sleep(1000);
 
-            let j = 60 - (i + 1);
+            let j = speltijd - (i + 1);
             jn = j.toString();
 
             console.log(jn + 'sec');
@@ -213,6 +217,10 @@ var checkMolGeklikt = function () {
 };
 
 
+
+
+
+
 /**
  * Zoekt uit of het spel moet beginnen
  *  true als het spel is afgelopen
@@ -226,7 +234,8 @@ var checkStartGame = function () {
     textSize (50);
     text ("klik op enter om te beginnen", 100, 500, 1180, 700);
     if (keyIsDown(13)){
-        spelStatus = SPELEN;
+        spelStatus = BEGINSPEL;
+        console.log('beginspel')
     };
 
 
@@ -241,14 +250,12 @@ function checkGameOver(){
     text ("points: " + points, 50, 350, 1180, 700);
     textSize(30);
     text ("klik op enter om opnieuw te beginnen", 50, 500, 1180, 700);
-    if (keyIsDown(13)){
-        spelStatus = SPELEN; 
+    if (keyIsDown(32)){
+        spelStatus = BEGINSPEL; 
     };
 
 
 };
-
-
 
 
 function tijdomV2(){
@@ -260,6 +267,14 @@ function tijdomV2(){
       console.log("Tijd om");
        
     }
+}
+
+function spelInitialisatie(){
+
+    TimerAlEenKeer = false;
+    points = 0;
+    
+
 }
 
 /**
@@ -292,16 +307,28 @@ function setup() {
  * uitgevoerd door de p5 library, nadat de setup functie klaar is
  */
 
-function draw() {
+function draw() { 
+      //console.log(spelStatus);
     switch (spelStatus) {
         case UITLEG:
+            console.log(spelStatus + ' uitleg');
             tekenVeld1();
             tekenVeld2 ();
             tekenZon();
             checkStartGame();
-            break;
-        case SPELEN:
             
+            break;
+
+        case BEGINSPEL:
+
+            spelInitialisatie();
+            //spelStatus = SPELEN;
+            console.log(spelStatus + ' beginspel');
+            spelStatus = SPELEN;
+            break;   
+
+        case SPELEN:
+            console.log(spelStatus + ' spelen');
             beweegMol();
             checkMolGeklikt();
             
@@ -321,18 +348,18 @@ function draw() {
         
             tijdomV2();
             console.log("na");
-            
-
-
-           //if (checkGameOver = true) {
-           //    spelStatus = GAMEOVER;
-           // }
             break;
-             case GAMEOVER:
+            
+        case GAMEOVER:
+            console.log(spelStatus + ' game over');
             tekenAchtergrond();
-            
+            checkGameOver();
             
             break;
+
+            default:
+                console.log(spelStatus + " default")
+        
     }
 }
 
