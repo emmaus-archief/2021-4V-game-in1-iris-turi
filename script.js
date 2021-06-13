@@ -43,7 +43,7 @@ var checkGameOver;
 var today = new Date();
 var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 var TimerAlEenKeer = false;
-var jn = "60";
+var jn = "60"; 
 /* ********************************************* */
 /*      functies die je gebruikt in je game      */
 /* ********************************************* */
