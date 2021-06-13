@@ -38,7 +38,6 @@ var molGeklikt;
 var points = 0;
 var pointsOneTime = true;
 
-var checkGameOver;
 
 var today = new Date();
 var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -230,17 +229,18 @@ var checkStartGame = function () {
         spelStatus = SPELEN;
     };
 
-    ;
+
 };
 
-var checkStartGameOver = function () {
+function checkGameOver(){
     fill(0,0,0);
     textSize (80);
     // @ts-ignore
     textAlign(CENTER);
-    text("GAME OVER!", 50,200,500,50);
+    text("GAME OVER!", 50,200,1180,700);
+    text ("points: " + points, 50, 350, 1180, 700);
     textSize(30);
-    text ("klik op enter om opnieuw te beginnen", 100, 500, 1180, 700);
+    text ("klik op enter om opnieuw te beginnen", 50, 500, 1180, 700);
     if (keyIsDown(13)){
         spelStatus = SPELEN; 
     };
@@ -248,17 +248,19 @@ var checkStartGameOver = function () {
 
 };
 
-/**
- * Zoekt uit of het spel is afgelopen
- * @returns {boolean} true als het spel is afgelopen
- */
-var tijdOm = function () {
-    checkGameOver = false;
-    if (jn == "0"){
-        checkGameOver = true;
+
+
+
+function tijdomV2(){
+
+    console.log("Tijd nog niet om  ");
+
+  if (jn == "0"){
+      checkGameOver();
+      console.log("Tijd om");
+       
     }
-  
-};
+}
 
 /**
  * Stelt de tijdTotZichtbaar-teller in op
@@ -305,7 +307,7 @@ function draw() {
             
             tekenAchtergrond();
             tekenZon();
-            
+           
 
             TimerLoop();
             tekenMol(plaatsMolX, plaatsMolY);
@@ -314,17 +316,21 @@ function draw() {
 
             // @ts-ignore
             tekenPunten();
-            console.log(jn + "in Draw")
+            console.log(jn + " in Draw");
+            console.log("Voor");
+        
+            tijdomV2();
+            console.log("na");
             
 
 
-          // if (checkGameOver = true) {
-           //     spelStatus = GAMEOVER;
-            //}
+           //if (checkGameOver = true) {
+           //    spelStatus = GAMEOVER;
+           // }
             break;
              case GAMEOVER:
             tekenAchtergrond();
-             checkStartGameOver();
+            
             
             break;
     }

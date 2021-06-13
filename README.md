@@ -20,7 +20,8 @@ Basis: uitleg, spelen, afgaan en punten
 - [x] tijd op scherm zettem
 - [x] tijd bijhouden
 - [ ] game over (na 60 seconde)
-- [x] uitlegscherm
+- [x] uitleg scherm
+- [x] gamover scherm
 - [x] random tijd voor verschijnen van mol
 - [ ] 2 mollen maken in plaats van 1 (grote stap)
 - [ ] 3 mollen
