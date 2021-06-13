@@ -19,7 +19,7 @@ Basis: uitleg, spelen, afgaan en punten
 - [x] aan de hand van de snelheid meer punten kunnen halen
 - [x] tijd op scherm zettem
 - [x] tijd bijhouden
-- [ ] game over (na 60 seconde)
+- [x] game over (na 60 seconde)
 - [x] uitleg scherm
 - [x] gamover scherm
 - [x] random tijd voor verschijnen van mol
