@@ -11,8 +11,6 @@
  */
 
 
-
-
 /* ********************************************* */
 /* globale variabelen die je gebruikt in je game */
 /* ********************************************* */
@@ -55,22 +53,27 @@ var jn = speltijd.toString();
 /**
  * Tekent het speelveld
  */
+
+//lucht
 var tekenAchtergrond = function () {
     fill('deepskyblue');
     rect(0, 0, 1280, 720);
 }
+
+//boveste groene gedeelte
 var tekenVeld1 = function () {
     fill("limeGreen");
-    rect(0, yBack, widthBack, heightBack); //boveste deel groen
+    rect(0, yBack, widthBack, heightBack);
 };
 
+//onderste groene gedeelte
 var tekenVeld2 = function () {
     fill("limeGreen");
-    rect(0, yBack * 2 - 55, widthBack, heightBack * 3 / 4); //onderste deel groen
+    rect(0, yBack * 2 - 55, widthBack, heightBack * 3 / 4); 
 };
 
+ // zon
 var tekenZon = function () {
-    //zon
     fill(255, 247, 0);
     ellipse(20,20,200,200);
 
@@ -111,7 +114,6 @@ function sleep(ms) {
 
 async function TimerLoop() {
 
-   
 
     if (TimerAlEenKeer == false) {
         TimerAlEenKeer = true;
@@ -129,15 +131,16 @@ async function TimerLoop() {
             jn = j.toString();
 
             console.log(jn + 'sec');
-
-            //tekenTijd (kogelX,kogelY,"")
             
            
         }
     }
 }
  
-
+/**
+ * alle if statements voor de punten
+ * tekent de punten en de timer
+ */
 
 var tekenPunten = function (x, y) {
  if ( tijdTotZichtbaar < 0 && tijdTotZichtbaar >= -50 && plaatsMolY === 249 && pointsOneTime && molGeklikt ) {
@@ -170,7 +173,7 @@ var tekenPunten = function (x, y) {
 
 
 /**
- * beweegt mol
+ * beweegt de mol
  * Updatet globale variabele plaatsMolY
  */
 var beweegMol = function () {
@@ -241,7 +244,13 @@ var checkStartGame = function () {
 
 };
 
+/**
+ * het scherm van de game over
+ * verwijst door naar beginspel
+ */
 function checkGameOver(){
+    fill(180,0,0);
+    rect(0,0,1500,1000);
     fill(0,0,0);
     textSize (80);
     // @ts-ignore
@@ -249,7 +258,7 @@ function checkGameOver(){
     text("GAME OVER!", 50,200,1180,700);
     text ("points: " + points, 50, 350, 1180, 700);
     textSize(30);
-    text ("klik op spatie om opnieuw te beginnen", 50, 500, 1180, 700);
+    text ("klik op enter om opnieuw te beginnen", 50, 500, 1180, 700);
     if (keyIsDown(13)){
         spelStatus = BEGINSPEL; 
     };
@@ -257,7 +266,10 @@ function checkGameOver(){
 
 };
 
-
+/**
+ * kijkt of de tijd om is
+ * verwijst door naar checkGameOver
+ */
 function tijdomV2(){
 
     console.log("Tijd nog niet om  ");
@@ -268,18 +280,19 @@ function tijdomV2(){
        
     }
 }
-
+/**
+ * reset de timer
+ * reset de punten
+ */
 function spelInitialisatie(){
 
     TimerAlEenKeer = false;
     points = 0;
     
-
 }
 
 /**
- * Stelt de tijdTotZichtbaar-teller in op
- * een random getal
+ * Stelt de tijdTotZichtbaar-teller in op een random getal
  */
 var resetTijdTotZichtbaar = function () {
     tijdTotZichtbaar = random(0, 250);
@@ -294,8 +307,10 @@ var resetTijdTotZichtbaar = function () {
 function setup() {
     // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
     createCanvas(1280, 720);
-
+    
+    //reset de tijdTotZichtbaar
     resetTijdTotZichtbaar();
+
     // Kleur de achtergrond blauw, zodat je het kunt zien
     background('deepskyblue');
 }
@@ -316,13 +331,10 @@ function draw() {
             tekenVeld2 ();
             tekenZon();
             checkStartGame();
-            
             break;
 
         case BEGINSPEL:
-
             spelInitialisatie();
-            //spelStatus = SPELEN;
             console.log(spelStatus + ' beginspel');
             spelStatus = SPELEN;
             break;   
@@ -335,7 +347,6 @@ function draw() {
             tekenAchtergrond();
             tekenZon();
            
-
             TimerLoop();
             tekenMol(plaatsMolX, plaatsMolY);
             tekenVeld1();
@@ -354,7 +365,6 @@ function draw() {
             console.log(spelStatus + ' game over');
             tekenAchtergrond();
             checkGameOver();
-            
             break;
 
             default:
